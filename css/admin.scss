@@ -1,0 +1,106 @@
+// .Search{
+//     position: relative;
+//     display: inline-block;
+//     box-sizing: border-box;
+//     transition: .5s;
+// }
+
+
+// .ISearch{
+//         outline: none;
+//         border-radius: 17px 0px 0px 17px;
+//         width: 250px;
+// }
+
+// .BSearch{
+//     margin-left: -10px;
+//     border-radius: 0px 17px 17px 0px;
+//     outline: none;
+//     background-color: mediumturquoise;
+// }
+body{
+    margin: auto;
+}
+.navbar{
+    padding: 10px;
+    height: 50px;
+    // background-color: blue;
+    box-shadow: 5px 5px #F6F6F6;
+    .Logo{
+        float: left;
+        margin-top: 10px;
+        width: 150px;
+        height: 30px;
+        // margin-right: 100px;
+    }
+    .Search{
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        transition: .5s;
+        margin-top: 10px;
+    }
+    .ISearch{
+        outline: none;
+        border-radius: 17px 0px 0px 17px;
+        height: 34px;
+        width: 250px;
+        margin-left: 382px;
+    }
+    .BSearch{
+        margin-left: -10px;
+        border-radius: 0px 17px 17px 0px;
+        height: 34px;
+        outline: none;
+        background-color: mediumturquoise;
+    }
+    .Foto{
+        float: right;
+        margin-top: -44px;
+        margin-right: 20px;
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+// .Search{
+//     position: relative;
+//     display: inline-block;
+//     box-sizing: border-box;
+//     transition: .5s;
+//     .ISearch{
+//         outline: none;
+//         border-radius: 17px 0px 0px 17px;
+//         width: 250px;
+//         margin-left: 50px;
+//     }
+//     .BSearch{
+//         margin-left: -10px;
+//         border-radius: 0px 17px 17px 0px;
+//         outline: none;
+//         background-color: mediumturquoise;
+//     }
+// }
+
+.Dashboard{
+    height: 590px;
+    background-color: yellow;
+    float: left;
+    .Dashboard-item{
+        margin: 0px;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 25px;
+    }
+    ul{
+        // display: none;
+        list-style-type: none;
+    }
+}
+
+// ul{
+//     background-color: yellow;
+//         a{
+//             color: white;
+//         }
+// }
