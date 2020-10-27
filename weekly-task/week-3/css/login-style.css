@@ -10,6 +10,8 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    text-align: center;
+    font-family: 'Lato' , sans-serif;
     justify-content: center;
     background: url(../Images/univ-indo.jpg);
     background-size: cover;
@@ -25,8 +27,14 @@ body {
 }
 
 h1 {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     font-family: 'Lato' , sans-serif;
+}
+
+h4 {
+    margin-bottom: 30px;
+    font-family: 'Lato' , sans-serif;
+    color: gray;
 }
 
 .input-field, form .button {
@@ -42,9 +50,64 @@ h1 {
     border: 1px solid silver;
     padding-left: 15px;
     outline: none;
-    font-size: 19px;
+    font-size: 14px;
+    transition: .4s;
+}
+
+input:focus {
+    border: 1px solid #1DA1F2;
+
 }
 
 .input-field label {
-    
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: grey;
+    font-size: 14px;
+    transition: .4s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    transform: translateY(-33px);
+    background: white;
+    font-size: 16px;
+    color: #1DA1F2;
+}
+
+form .button {
+    margin-top: 30px;
+    overflow: hidden;
+    z-index: 111;
+}
+
+.button .inner {
+    position: absolute;
+    height: 100%;
+    width: 300%;
+    left: -100%;
+    z-index: -1;
+    transition: all .4s;
+    background: -webkit-linear-gradient(right, #00dbde, #fc00ff,  #00dbde, #fc00ff);
+}
+
+.button:hover .inner {
+    left: 0;
+}
+
+.button button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    font-family: 'Lato' , sans-serif;
+    font-style: bold;
+    cursor: pointer;
+
 }
