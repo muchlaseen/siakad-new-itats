@@ -199,7 +199,7 @@ body {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 250px) {
   .navbar {
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -235,6 +235,7 @@ body {
     width: 17vh;
   }
   .navbar .BSearch {
+    margin-top: 20px;
     padding: 1px;
     width: 50px;
     outline: none;
