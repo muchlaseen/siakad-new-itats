@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('awal');
 });
-
+Route::get('/masuk', 'HomeController@masuk')->name('masuk');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
