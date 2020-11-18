@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dosen','User\DosenController@index')->name('indexDosen');
+Route::get('/createDosen','User\DosenController@create')->name('createDosen');
+Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
+Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
+Route::put('/editDosen/{nim}/edit','User\DosenController@update')->name('updateDosen');

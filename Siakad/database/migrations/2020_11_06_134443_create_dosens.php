@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdmins extends Migration
+class CreateDosens extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateAdmins extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique();
-            $table->string('password');
+        Schema::create('dosens', function (Blueprint $table) {
+            $table->string('nim')->primary();
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('jenis_kelamin');
+            $table->string('email')->uniqeu();
+            $table->string('no_telp');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateAdmins extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('dosens');
     }
 }
