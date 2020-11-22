@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->id();
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
-            $table->string('npm_nim')->refrences(['npm','nim'])->on(['mahasiswas','dosens']);
-            // $table->string('npm_nim')->refrences('npm')->on('mahasiswas');
-            // $table->string('npm_nim')->refrences('nim')->on('dosens');
+            // $table->string('npm_nim')->refrences(['npm','nim'])->on(['mahasiswas','dosens']);
+            $table->string('npm_nim')->refrences('npm')->on('mahasiswas');
+            $table->string('npm_nim')->refrences('nim')->on('dosens');
             $table->string('password');
             $table->string('level');
             $table->rememberToken();

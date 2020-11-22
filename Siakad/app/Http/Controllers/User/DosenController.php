@@ -56,8 +56,6 @@ class DosenController extends Controller
 
         $dosen->save();
 
-        dd($dosen);
-
         return redirect()->back()->with('success','Data Tersimpan');
     }
 
@@ -95,9 +93,26 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nim)
     {
-        //
+        $dosen = Dosen::find($nim);
+
+        $request->validate([
+            'nim' => 'required|min:6',
+            'telp' => 'required|min:11',
+        ]);
+
+        $dosen =  new Dosen;
+        $dosen->nim = $request->nim;
+        $dosen->nama = $request->nama;
+        $dosen->alamat = $request->alamat;
+        $dosen->jenis_Kelamin = $request->jenisKelamin;
+        $dosen->email = $request->email;
+        $dosen->no_telp = $request->telp;
+
+        $dosen->save();
+
+        return redirect()->route('indexDosen')->with('success','Data Tersimpan');
     }
 
     /**
@@ -106,8 +121,12 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nim)
     {
-        //
+        $dosen = Dosen::find($nim);
+
+        $dosen->delete();
+
+        return redirect()->back()->with('warning','Data Terhapus');
     }
 }

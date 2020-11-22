@@ -37,4 +37,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function nim()
+    {
+        return ('nim');
+    }
+
+    public function npm()
+    {
+        return ('npm');
+    }
 }

@@ -1,0 +1,74 @@
+body{
+    margin: auto;
+}
+
+.Dashboard{
+    height: 590px;
+    width: 15%;
+    float: left;
+    background-color: #5D75C8;
+    margin-top: 5px;
+    .Dashboard-item{
+        margin: 0px;
+        margin-top: -18px;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 65px;
+        font-size: 18px;
+        font-weight: 600;
+        ul{
+            list-style-type: none;
+            padding-inline-start: 0;
+            .user-show.showUser{
+                display: block;
+            }
+            .akademik-show.showAkademik{
+                display: block;
+            }
+            ul{
+                display: none;
+                position: static;
+                li{
+                    line-height: 42px;
+                    border-bottom: none;
+                    a{
+                        font-size: 17px;
+                        padding-left: 80px;
+                        width: 60%;
+                    }
+                }
+            }
+            li{
+                border-bottom: 1px solid blue;
+                a{
+                    color: white;
+                    text-decoration: none;
+                    padding-left: 40px;
+                    width: 80%;
+                    display: block;
+                    border-left: 3px solid transparent;
+                    position: relative;
+                    .fa-caret-down{
+                        position: absolute;
+                        top: 50%;
+                        right: 10%;
+                        transform: translateY(-50%);
+                        font-size: 18px;
+                    }
+                    &:hover{
+                        color: #00FAD1;
+                        background: #8598E4;
+                        border-left-color: #00FAD1 ;
+                         .fa-caret-down{
+                            transform: translateY(-50%) rotate(-180deg);
+                        }
+                    }
+                }
+            }
+            a:hover ul {
+                ul{
+                display: block;
+                }
+            }
+        }
+    }
+}

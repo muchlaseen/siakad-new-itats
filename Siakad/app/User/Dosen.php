@@ -8,4 +8,6 @@ class Dosen extends Model
 {
     // protected $guarded = [];
     protected $primaryKey = 'nim';
+
+    protected $guarded = [];
 }
