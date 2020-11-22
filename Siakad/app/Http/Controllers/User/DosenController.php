@@ -30,7 +30,8 @@ class DosenController extends Controller
      */
     public function create()
     {
-        return view('autentikasi/dosen/create');
+        // return view('autentikasi/dosen/create');
+        return view('layoutAdmin.dosen.create');
     }
 
     /**

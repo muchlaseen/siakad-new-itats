@@ -15,11 +15,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin = Admin::paginate(5);
+        // $admin = Admin::paginate(5);
         
-        return view('halaman',[
-            ''
-        ]);
+        return view('layoutAdmin.index');
+        // return view('halaman',[
+        //     ''
+        // ]);
     }
 
     /**
