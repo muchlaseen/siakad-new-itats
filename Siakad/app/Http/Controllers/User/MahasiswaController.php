@@ -15,11 +15,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mhs = Mahasiswa::paginate(5);
-
-        return view('halaman_index',[
-
-        ]);
+        $mahasiswa = Mahasiswa::all();
+        return view('layoutAdmin.mahasiswa.index', ['mahasiswas' => $mahasiswa]);
     }
 
     /**
