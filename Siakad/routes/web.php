@@ -24,13 +24,16 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin', 'User\AdminController@index')->name('admin');
     Route::get('/createDosen','User\DosenController@create')->name('dosen.create');
     Route::get('/dosen','User\DosenController@index')->name('indexDosen');
+    Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
+    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
+    Route::put('/editDosen/{nim}/edit','User\DosenController@update')->name('updateDosen');
+
     Route::get('/mahasiswa', 'User\MahasiswaController@index');
     Route::post('/mahasiswa/create', 'User\MahasiswaController@create');
     Route::get('/mahasiswa/{npm}/edit', 'User\MahasiswaController@edit');
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update');
-    Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
-    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
-    Route::put('/editDosen/{nim}/edit','User\DosenController@update')->name('updateDosen');
+
+    
 });
 
 
