@@ -32,57 +32,59 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="/mahasiswa/create" method="POST">
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                   <label for="inputNPM">NPM</label>
-                                  <input type="text" class="form-control" id="inputNPM" aria-describedby="emailHelp">
+                                  <input name="npm" type="number" class="form-control" id="inputNPM" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputJurusan">ID Jurusan</label>
-                                    <input type="text" class="form-control" id="inputJurusan" aria-describedby="emailHelp">
+                                    <input name="id_jurusan" type="text" class="form-control" id="inputJurusan" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNama">Nama</label>
-                                    <input type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <input name="nama" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Alamat</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea name="alamat" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select name="jenis_kelamin" class="form-control" id="exampleFormControlSelect1">
                                       <option>Laki-laki</option>
                                       <option>Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNama">Email</label>
-                                    <input type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <input name="email" type="email" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNama">No Telfon</label>
-                                    <input type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <input name="no_telp" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNama">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <input name="tempat_lahir" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputNama">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <input name="tgl_lahir" type="date" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputNama">Tempat Lahir</label>
-                                    <input type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
+                                    <label for="inputNama">Agama</label>
+                                    <input name="agama" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp">
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                              </form>
+                              
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                         </div>
+                    
                         </div>
                     </div>
                 </div>

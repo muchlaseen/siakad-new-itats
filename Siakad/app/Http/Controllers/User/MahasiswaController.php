@@ -24,9 +24,9 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('halaman_create');
+        \App\User\Mahasiswa::create($request->all());
     }
 
     /**
