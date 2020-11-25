@@ -58,9 +58,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($npm)
     {
-        //
+        $mahasiswa = Mahasiswa::find($npm);
+        return view('layoutAdmin.mahasiswa.edit', ['mahasiswas' => $mahasiswa]);
     }
 
     /**
@@ -70,9 +71,11 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $npm)
     {
-        //
+        $mahasiswa = \App\User\Mahasiswa::find($npm);
+        $mahasiswa->update($request->all());
+        return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
     }
 
     /**

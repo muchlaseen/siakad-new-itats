@@ -58,8 +58,8 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Jenis Kelamin</label>
                                     <select name="jenis_kelamin" class="form-control" id="exampleFormControlSelect1">
-                                      <option>Laki-laki</option>
-                                      <option>Perempuan</option>
+                                      <option value="L">Laki-laki</option>
+                                      <option value="P">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -107,6 +107,7 @@
                     <td>Tempat Lahir</td>
                     <td>Tanggal Lahir</td>
                     <td>Agama</td>
+                    <td>Aksi</td>
                 </tr>
                 @foreach ($mahasiswas as $mahasiswa)
                 <tr>
@@ -120,6 +121,7 @@
                     <td>{{$mahasiswa->tempat_lahir}}</td>
                     <td>{{$mahasiswa->tgl_lahir}}</td>
                     <td>{{$mahasiswa->agama}}</td>
+                <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
     
                 </tr>  
                 @endforeach
