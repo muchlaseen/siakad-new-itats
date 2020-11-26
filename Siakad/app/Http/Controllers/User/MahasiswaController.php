@@ -73,7 +73,7 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $npm)
     {
-        $mahasiswa = \App\User\Mahasiswa::find($npm);
+        $mahasiswa = Mahasiswa::find($npm);
         $mahasiswa->update($request->all());
         return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
     }
@@ -84,8 +84,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($npm)
     {
-        //
+        $mahasiswa = Mahasiswa::find($npm);
+        $mahasiswa->delete();
+        return redirect('/mahasiswa')->with('success', 'Data berhasil dihapus');
     }
 }

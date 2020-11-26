@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/mahasiswa/create', 'User\MahasiswaController@create');
     Route::get('/mahasiswa/{npm}/edit', 'User\MahasiswaController@edit');
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update');
+    Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy');
 
     
 });

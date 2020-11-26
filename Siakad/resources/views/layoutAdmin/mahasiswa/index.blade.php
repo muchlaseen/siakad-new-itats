@@ -88,17 +88,17 @@
             
             <table class="table table-hover">
                 <tr>
-                    <td>NPM</td>
-                    <td>ID Jurusan</td>
-                    <td>Nama</td>
-                    <td>Alamat</td>
-                    <td>Jenis Kelamin</td>
-                    <td>Email</td>
-                    <td>No. Telp</td>
-                    <td>Tempat Lahir</td>
-                    <td>Tanggal Lahir</td>
-                    <td>Agama</td>
-                    <td>Aksi</td>
+                    <th>NPM</th>
+                    <th>ID Jurusan</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Email</th>
+                    <th>No. Telp</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Agama</th>
+                    <th>Aksi</th>
                 </tr>
                 @foreach ($mahasiswas as $mahasiswa)
                 <tr>
@@ -113,6 +113,7 @@
                     <td>{{$mahasiswa->tgl_lahir}}</td>
                     <td>{{$mahasiswa->agama}}</td>
                 <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
+                <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm">Delete</a></td>
     
                 </tr>  
                 @endforeach
