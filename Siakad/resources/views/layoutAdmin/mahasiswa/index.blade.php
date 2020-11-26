@@ -86,36 +86,38 @@
                 </div>
             </div>
             
-            <table class="table table-hover">
-                <tr>
-                    <th>NPM</th>
-                    <th>ID Jurusan</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Email</th>
-                    <th>No. Telp</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Agama</th>
-                    <th>Aksi</th>
-                </tr>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>NPM</th>
+                        <th>ID Jurusan</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Email</th>
+                        <th>No. Telp</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Agama</th>
+                        <th colspan="2" style="text-align: center">Aksi</th>
+                    </tr>
+                </thead>
                 @foreach ($mahasiswas as $mahasiswa)
-                <tr>
-                    <td>{{$mahasiswa->npm}}</td>
-                    <td>{{$mahasiswa->id_jurusan}}</td>
-                    <td>{{$mahasiswa->nama}}</td>
-                    <td>{{$mahasiswa->alamat}}</td>
-                    <td>{{$mahasiswa->jenis_kelamin}}</td>
-                    <td>{{$mahasiswa->email}}</td>
-                    <td>{{$mahasiswa->no_telp}}</td>
-                    <td>{{$mahasiswa->tempat_lahir}}</td>
-                    <td>{{$mahasiswa->tgl_lahir}}</td>
-                    <td>{{$mahasiswa->agama}}</td>
-                <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
-                <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm">Delete</a></td>
-    
-                </tr>  
+                    <tr>
+                        <td>{{$mahasiswa->npm}}</td>
+                        <td>{{$mahasiswa->id_jurusan}}</td>
+                        <td>{{$mahasiswa->nama}}</td>
+                        <td>{{$mahasiswa->alamat}}</td>
+                        <td>{{$mahasiswa->jenis_kelamin}}</td>
+                        <td>{{$mahasiswa->email}}</td>
+                        <td>{{$mahasiswa->no_telp}}</td>
+                        <td>{{$mahasiswa->tempat_lahir}}</td>
+                        <td>{{$mahasiswa->tgl_lahir}}</td>
+                        <td>{{$mahasiswa->agama}}</td>
+                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
+                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
+        
+                    </tr>  
                 @endforeach
             </table>
         </div>
