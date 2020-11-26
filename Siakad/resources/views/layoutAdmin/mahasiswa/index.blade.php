@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-6">
                     <div class="form-group pull-left">
-                        <input type="text" class="search form-control" placeholder="Cari mahasiswa">
+                        <input id="searchInput" type="text" class="search form-control" placeholder="Cari mahasiswa">
                     </div>
                 </div>
             
@@ -113,7 +113,8 @@
                         <th colspan="2" style="text-align: center">Aksi</th>
                     </tr>
                 </thead>
-                @foreach ($mahasiswas as $mahasiswa)
+                <tbody id="tableMhs">
+                    @foreach ($mahasiswas as $mahasiswa)
                     <tr>
                         <td>{{$mahasiswa->npm}}</td>
                         <td>{{$mahasiswa->id_jurusan}}</td>
@@ -130,6 +131,8 @@
         
                     </tr>  
                 @endforeach
+                </tbody>
+               
             </table>
         </div>
     </div>
