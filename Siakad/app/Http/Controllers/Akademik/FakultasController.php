@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User\Mahasiswa;
 
-class MahasiswaController extends Controller
+class FakultasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,12 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
-        return view('layoutAdmin.mahasiswa.index', ['mahasiswas' => $mahasiswa]);
+        $fakultas = Fakultas::paginate(5);
+
+        return view('',[
+            'title' => 'List Fakultas',
+            'fakultass' => $fakultas,
+        ]);
     }
 
     /**
@@ -24,10 +27,9 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        \App\User\Mahasiswa::create($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil ditambahkan');
+        //
     }
 
     /**
@@ -38,7 +40,20 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_fakultas' => 'required|min:1',
+            'nama_fakultas' => 'required|min:6'
+        ]);
+
+        $fakul = new Fakultas;
+        
+        $fakul->id_fakultas = $request->id;
+        $fakul->nama_fakultas = $request->name;
+
+        $fakul->save();
+
+        return redirect()->route()->with('success','Data Tersimpan');
+
     }
 
     /**
@@ -58,10 +73,9 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($npm)
+    public function edit($id_fakultas)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        return view('layoutAdmin.mahasiswa.edit', ['mahasiswas' => $mahasiswa]);
+        return view();
     }
 
     /**
@@ -71,11 +85,16 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $npm)
+    public function update(Request $request, $id_fakultas)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        $mahasiswa->update($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
+        $fakul = Fakultas::find($id_fakultas);
+
+        $fakul->id_fakultas = $request->id;
+        $fakul->nama_fakultas = $request->name;
+
+        $fakul->save();
+
+        return redirect()->route()->with('succes','Data Terupdate');
     }
 
     /**
@@ -84,10 +103,11 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($npm)
+    public function destroy($id_fakultas)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        $mahasiswa->delete();
-        return redirect('/mahasiswa')->with('success', 'Data berhasil dihapus');
+        $fakul = Fakultas::find($id_fakultas);
+
+        $fakul->delete();
+        return redirect()->back()->with();
     }
 }

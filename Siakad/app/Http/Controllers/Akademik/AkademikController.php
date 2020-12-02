@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User\Mahasiswa;
 
-class MahasiswaController extends Controller
+class AkademikController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
-        return view('layoutAdmin.mahasiswa.index', ['mahasiswas' => $mahasiswa]);
+        //
     }
 
     /**
@@ -24,10 +22,9 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        \App\User\Mahasiswa::create($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil ditambahkan');
+        //
     }
 
     /**
@@ -58,10 +55,9 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($npm)
+    public function edit($id)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        return view('layoutAdmin.mahasiswa.edit', ['mahasiswas' => $mahasiswa]);
+        //
     }
 
     /**
@@ -71,11 +67,9 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $npm)
+    public function update(Request $request, $id)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        $mahasiswa->update($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
+        //
     }
 
     /**
@@ -84,10 +78,8 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($npm)
+    public function destroy($id)
     {
-        $mahasiswa = Mahasiswa::find($npm);
-        $mahasiswa->delete();
-        return redirect('/mahasiswa')->with('success', 'Data berhasil dihapus');
+        //
     }
 }

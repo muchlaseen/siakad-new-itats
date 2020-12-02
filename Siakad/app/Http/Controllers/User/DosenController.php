@@ -16,8 +16,8 @@ class DosenController extends Controller
     public function index()
     {
         $dosen = Dosen::paginate(5);
-
-        return view('autentikasi/dosen/index',[
+        // $dosen = Dosen::all();
+        return view('autentikasi.dosen.index',[
             'title' => 'List Dosen',
             'dosens' => $dosen,
         ]);

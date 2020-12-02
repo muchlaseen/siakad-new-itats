@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        // 'dosen' => [
+        //     'driver' => 'session',
+        //     'provider' => 'dosens'
+        // ],
+
+        // 'mahasiswa' => [
+        //     'driver' => 'session',
+        //     'provider' => 'mahasiswas'
+        // ],
     ],
 
     /*
@@ -70,6 +80,16 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+
+        // 'dosens' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\User\Dosen::class,
+        // ],
+
+        // 'mahasiswas' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\User\Mahasiswa::class,
+        // ],
 
         // 'users' => [
         //     'driver' => 'database',
