@@ -14,7 +14,12 @@ class FakultasController extends Controller
      */
     public function index()
     {
-        //
+        $fakultas = Fakultas::paginate(5);
+
+        return view('',[
+            'title' => 'List Fakultas',
+            'fakultass' => $fakultas,
+        ]);
     }
 
     /**
@@ -35,7 +40,20 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_fakultas' => 'required|min:1',
+            'nama_fakultas' => 'required|min:6'
+        ]);
+
+        $fakul = new Fakultas;
+        
+        $fakul->id_fakultas = $request->id;
+        $fakul->nama_fakultas = $request->name;
+
+        $fakul->save();
+
+        return redirect()->route()->with('success','Data Tersimpan');
+
     }
 
     /**
@@ -55,9 +73,9 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_fakultas)
     {
-        //
+        return view();
     }
 
     /**
@@ -67,9 +85,16 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_fakultas)
     {
-        //
+        $fakul = Fakultas::find($id_fakultas);
+
+        $fakul->id_fakultas = $request->id;
+        $fakul->nama_fakultas = $request->name;
+
+        $fakul->save();
+
+        return redirect()->route()->with('succes','Data Terupdate');
     }
 
     /**
@@ -78,8 +103,11 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_fakultas)
     {
-        //
+        $fakul = Fakultas::find($id_fakultas);
+
+        $fakul->delete();
+        return redirect()->back()->with();
     }
 }

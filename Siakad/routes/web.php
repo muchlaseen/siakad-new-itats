@@ -37,4 +37,5 @@ Route::middleware('auth')->group(function(){
     
 });
 
+Route::get('/jurusan', 'Akademik\JurusanController@create');
 

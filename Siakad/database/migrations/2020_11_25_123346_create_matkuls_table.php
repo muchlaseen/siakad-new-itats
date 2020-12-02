@@ -15,13 +15,13 @@ class CreateMatkulsTable extends Migration
     {
         Schema::create('matkuls', function (Blueprint $table) {
             $table->integer('kode_mk')->primary();
-            $table->integer('id_jurusan');
+            $table->unsignedInteger('id_jurusan')->foreign('id_jurusan')->references('id_jurusan')->on('jurusans')->onDelete('cascade');
             $table->string('nama_mk');
             $table->integer('sks');
             $table->integer('semester');
             $table->timestamps();
  
-            $table->foreign('id_jurusan')->references('id_jurusan')->on('jurusans')->onDelete('cascade');
+            
         });
     }
 

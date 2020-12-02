@@ -14,4 +14,9 @@ class Jurusan extends Model
         return $this->belongsTo(Fakultas::class, 'id_fakultas', 'id_fakultas');
         //                          model           foreignkey      pemilik key
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Akademik\Matkul', 'id_jurusan', 'id_jurusan');
+    }
 }

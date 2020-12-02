@@ -8,6 +8,7 @@ class Fakultas extends Model
 {
     protected $primarykey = 'id_fakultas';
     protected $guard = [];
+    protected $table = 'fakultass';
 
     public function roles()
     {
