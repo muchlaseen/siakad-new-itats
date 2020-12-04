@@ -21,7 +21,7 @@ Route::get('/masuk', 'HomeController@masuk')->name('masuk');
 
 Auth::routes();
 Route::middleware('auth')->group(function(){
-    Route::get('/admin', 'User\AdminController@index')->name('admin');
+    Route::get('/admin', 'User\AdminController@index')->name('admin.index');
     Route::get('/createDosen','User\DosenController@create')->name('dosen.create');
     Route::get('/dosen','User\DosenController@index')->name('indexDosen');
     Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update');
     Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy');
 
-    
+
 });
 
 Route::get('/jurusan', 'Akademik\JurusanController@create');

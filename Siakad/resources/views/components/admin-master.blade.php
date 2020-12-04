@@ -42,7 +42,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('admin.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -57,7 +57,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <x-admin-sidebar-dosens-links>
-      
+
       </x-admin-sidebar-dosens-links>
 
       <!-- Nav Item - Utilities Collapse Menu -->
@@ -323,12 +323,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
             @yield('content')
-          </div>
 
-
-        </div>
         <!-- /.container-fluid -->
 
       </div>
