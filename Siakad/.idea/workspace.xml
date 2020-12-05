@@ -11,11 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab0cb97-4006-4f02-a4bc-7ca06e5ca6ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/components/admin-sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/admin-top-navbar-user-information.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layoutAdmin/dosen/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layoutAdmin/dosen/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/DosenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/DosenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/admin-master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin-master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/admin-sidebar-dosens-links.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin-sidebar-dosens-links.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layoutAdmin/Admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layoutAdmin/dosen/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layoutAdmin/Admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin-sidebar-mahasiswas-links.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layoutAdmin/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layoutAdmin/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -181,7 +185,8 @@
       <workItem from="1606912885614" duration="1151000" />
       <workItem from="1606990223812" duration="2686000" />
       <workItem from="1607082212252" duration="1978000" />
-      <workItem from="1607127252685" duration="4751000" />
+      <workItem from="1607127252685" duration="5478000" />
+      <workItem from="1607157406179" duration="2770000" />
     </task>
     <servers />
   </component>
@@ -198,6 +203,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607130317803">
