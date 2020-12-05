@@ -1,7 +1,7 @@
 <x-admin-master>
     @section('content')
     <h1> Create Dosen</h1>
-    <form action="#" enctype="multipart/form-data"  method="post">
+    <form action="{{route('dosen.store')}}" enctype="multipart/form-data"  method="post">
         @csrf
         <div class="form-group">
             <label for="title">NIM</label>

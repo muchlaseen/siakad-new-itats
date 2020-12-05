@@ -23,8 +23,8 @@ Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::get('/admin', 'User\AdminController@index')->name('admin.index');
     Route::get('/createDosen','User\DosenController@create')->name('dosen.create');
-    Route::get('/dosen','User\DosenController@index')->name('indexDosen');
-    Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
+    Route::get('/dosen','User\DosenController@index')->name('dosen.index');
+    Route::post('/dosen','User\DosenController@store')->name('dosen.store');
     #irul
 //    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
     #ilham

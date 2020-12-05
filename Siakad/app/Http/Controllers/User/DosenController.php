@@ -47,22 +47,26 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
             'nim' => 'required|min:6',
-            'telp' => 'required|min:11',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'kelamin' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required|min:13'
         ]);
 
-        $dosen =  new Dosen;
-        $dosen->nim = $request->nim;
-        $dosen->nama = $request->nama;
-        $dosen->alamat = $request->alamat;
-        $dosen->jenis_Kelamin = $request->jenisKelamin;
-        $dosen->email = $request->email;
-        $dosen->no_telp = $request->telp;
-
+        $dosen =  new Dosen();
+        $dosen->nim = $request->input('nim');
+        $dosen->nama = $request->input('nama');
+        $dosen->alamat = $request->input('alamat');
+        $dosen->jenis_kelamin = $request->input('kelamin');
+        $dosen->email = $request->input('email');
+        $dosen->no_telp = $request->input('no_telp');
         $dosen->save();
 
-        return redirect()->back()->with('success','Data Tersimpan');
+        return redirect()->route('dosen.index');
+//        return redirect()->back()->with('success','Data Tersimpan');
     }
 
     /**
