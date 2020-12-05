@@ -23,7 +23,12 @@ class DosenController extends Controller
 //            'dosens' => $dosen,
 //        ]);
         #ilham
-            return view('layoutAdmin.dosen.index');
+            return view('layoutAdmin.dosen.index',
+            #irul
+            [
+                'title' => 'List Dosen',
+                'dosens' => $dosen,
+            ]);
     }
 
     /**
@@ -91,7 +96,12 @@ class DosenController extends Controller
 //            'dosen' => $dosen,
 //        ]);
         #ilham
-        return view('layoutAdmin.dosen.edit');
+        return view('layoutAdmin.dosen.edit',
+        #irul
+        [
+            'title' => 'Edit ',
+            'dosen' => $dosen,
+        ]);
     }
 
     /**
