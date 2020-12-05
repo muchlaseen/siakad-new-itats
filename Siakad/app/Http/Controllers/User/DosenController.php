@@ -17,10 +17,13 @@ class DosenController extends Controller
     {
         $dosen = Dosen::paginate(5);
         // $dosen = Dosen::all();
-        return view('autentikasi.dosen.index',[
-            'title' => 'List Dosen',
-            'dosens' => $dosen,
-        ]);
+        #irul
+//        return view('autentikasi.dosen.index',[
+//            'title' => 'List Dosen',
+//            'dosens' => $dosen,
+//        ]);
+        #ilham
+            return view('layoutAdmin.dosen.index');
     }
 
     /**
@@ -30,7 +33,9 @@ class DosenController extends Controller
      */
     public function create()
     {
+        #irul
         // return view('autentikasi/dosen/create');
+        #ilham
         return view('layoutAdmin.dosen.create');
     }
 
@@ -77,14 +82,18 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($nim)
+    public function edit()
     {
-        $dosen = Dosen::find($nim);
-
-        return view('autentikasi/dosen/edit',[
-            'title' => 'Edit ' . $nim,
-            'dosen' => $dosen,
-        ]);
+//      $nim
+        #irul
+//        $dosen = Dosen::find($nim);
+//
+//        return view('autentikasi/dosen/edit',[
+//            'title' => 'Edit ' . $nim,
+//            'dosen' => $dosen,
+//        ]);
+        #ilham
+        return view('layoutAdmin.dosen.edit');
     }
 
     /**

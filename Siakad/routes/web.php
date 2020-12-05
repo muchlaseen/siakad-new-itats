@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/createDosen','User\DosenController@create')->name('dosen.create');
     Route::get('/dosen','User\DosenController@index')->name('indexDosen');
     Route::post('/createDosen','User\DosenController@store')->name('createDosenStore');
-    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
+    #irul
+//    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
+    #ilham
+    Route::get('edit/dosen','User\DosenController@edit')->name('editDosen');
     Route::put('/editDosen/{nim}/edit','User\DosenController@update')->name('updateDosen');
 
     Route::get('/mahasiswa', 'User\MahasiswaController@index');

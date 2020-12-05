@@ -7,7 +7,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Dosen</h6>
             <a class="collapse-item" href="{{route('dosen.create')}}">Tambahkan Dosen</a>
-            <a class="collapse-item" href="cards.html">Tampilkan Dosen</a>
+            <a class="collapse-item" href="/dosen">Tampilkan Dosen</a>
           </div>
         </div>
  </li>
