@@ -33,8 +33,6 @@ class DosenController extends Controller
      */
     public function create()
     {
-        #irul
-        // return view('autentikasi/dosen/create');
         #ilham
         return view('layoutAdmin.dosen.create');
     }
