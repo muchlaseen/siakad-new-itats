@@ -64,8 +64,9 @@ class DosenController extends Controller
         $dosen->no_telp = $request->telp;
 
         $dosen->save();
+        dd($dosen);
 
-        return redirect()->back()->with('success','Data Tersimpan');
+        return redirect()->route('indexDosen')->with('success','Data Tersimpan');
     }
 
     /**
@@ -85,9 +86,8 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($nim)
     {
-//      $nim
         #irul
 //        $dosen = Dosen::find($nim);
 //
@@ -99,7 +99,7 @@ class DosenController extends Controller
         return view('layoutAdmin.dosen.edit',
         #irul
         [
-            'title' => 'Edit ',
+            'title' => 'Edit ' . $nim,
             'dosen' => $dosen,
         ]);
     }
