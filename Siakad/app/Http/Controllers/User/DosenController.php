@@ -23,7 +23,12 @@ class DosenController extends Controller
 //            'dosens' => $dosen,
 //        ]);
         #ilham
-            return view('layoutAdmin.dosen.index');
+            return view('layoutAdmin.dosen.index',
+            #irul
+            [
+                'title' => 'List Dosen',
+                'dosens' => $dosen,
+            ]);
     }
 
     /**
@@ -33,8 +38,6 @@ class DosenController extends Controller
      */
     public function create()
     {
-        #irul
-        // return view('autentikasi/dosen/create');
         #ilham
         return view('layoutAdmin.dosen.create');
     }
@@ -66,7 +69,7 @@ class DosenController extends Controller
         $dosen->save();
 
         return redirect()->route('dosen.index');
-//        return redirect()->back()->with('success','Data Tersimpan');
+
     }
 
     /**
@@ -86,9 +89,8 @@ class DosenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($nim)
     {
-//      $nim
         #irul
 //        $dosen = Dosen::find($nim);
 //
@@ -97,7 +99,12 @@ class DosenController extends Controller
 //            'dosen' => $dosen,
 //        ]);
         #ilham
-        return view('layoutAdmin.dosen.edit');
+        return view('layoutAdmin.dosen.edit',
+        #irul
+        [
+            'title' => 'Edit ' . $nim,
+            'dosen' => $dosen,
+        ]);
     }
 
     /**

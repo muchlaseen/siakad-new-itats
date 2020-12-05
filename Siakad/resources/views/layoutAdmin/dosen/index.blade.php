@@ -30,7 +30,24 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
+                            @foreach ($dosens as $dosen)
+                                <tr>
+                                    <td>{{$dosen->nim}} </td>
+                                    <td><a href="{{route('editDosen')}} ">{{$dosen->nama}} </a></td>
+                                    <td>{{$dosen->alamat}} </td>
+                                    <td>{{$dosen->jenis_kelamin}} </td>
+                                    <td>{{$dosen->email}} </td>
+                                    <td>{{$dosen->no_telp}} </td>
+                                    <td>
+                                        <form method="post" action="{{route('deleteDosen')}} " enctype="multipart/form-data">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            {{-- <tr>
                                 <td>07010</td>
                                 <td><a href="/edit/dosen">Kharisma Ilham Nusantara</a></td>
                                 <td>Taman, Sidoarjo</td>
@@ -74,7 +91,7 @@
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
