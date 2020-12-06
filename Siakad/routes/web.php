@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function(){
 //    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
     #ilham
     Route::get('/dosen/{nim}/edit','User\DosenController@edit')->name('dosen.edit');
-    Route::put('/dosen/{nim}/edit','User\DosenController@update')->name('updateDosen');
+    Route::put('/dosen/{nim}/update','User\DosenController@update')->name('updateDosen');
 
     Route::get('/mahasiswa', 'User\MahasiswaController@index');
     Route::post('/mahasiswa/create', 'User\MahasiswaController@create');

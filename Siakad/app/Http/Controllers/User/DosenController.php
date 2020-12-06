@@ -120,16 +120,20 @@ class DosenController extends Controller
 
         $request->validate([
             'nim' => 'required|min:6',
-            'telp' => 'required|min:11',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'kelamin' => 'required',
+            'email' => 'required',
+            'no_telp' => 'required|min:11'
         ]);
 
         $dosen =  new Dosen;
         $dosen->nim = $request->nim;
         $dosen->nama = $request->nama;
         $dosen->alamat = $request->alamat;
-        $dosen->jenis_Kelamin = $request->jenisKelamin;
+        $dosen->jenis_kelamin = $request->kelamin;
         $dosen->email = $request->email;
-        $dosen->no_telp = $request->telp;
+        $dosen->no_telp = $request->no_telp;
 
         $dosen->save();
 
