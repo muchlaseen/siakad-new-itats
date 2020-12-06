@@ -1,7 +1,7 @@
 <x-admin-master>
     @section('content')
         <h1> Edit Dosen</h1>
-        <form action="{{route('updateDosen', $dosen)}} " enctype="multipart/form-data"  method="post">
+        <form action="{{route('dosen.update', $dosen)}} " enctype="multipart/form-data"  method="post">
             @csrf
             @method('PUT')
             <div class="form-group">

@@ -39,12 +39,7 @@
                                     <td>{{$dosen->email}} </td>
                                     <td>{{$dosen->no_telp}} </td>
                                     <td>
-                                        <form method="POST" action="{{route('dosen.delete', $dosen)}} " enctype="multipart/form-data">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                        {{-- <button href="{{route('dosen.delete', $dosen)}}" type="submit" class="btn btn-danger">Delete</button> --}}
+                                        <a href="{{route('dosen.delete', $dosen)}}" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

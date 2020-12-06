@@ -116,7 +116,6 @@ class DosenController extends Controller
      */
     public function update(Request $request, $nim)
     {
-        $dosen = Dosen::find($nim);
 
         $request->validate([
             'nim' => 'required|min:6',
@@ -127,7 +126,7 @@ class DosenController extends Controller
             'no_telp' => 'required|min:11'
         ]);
 
-        $dosen =  new Dosen;
+        $dosen = Dosen::find($nim);
         $dosen->nim = $request->nim;
         $dosen->nama = $request->nama;
         $dosen->alamat = $request->alamat;
