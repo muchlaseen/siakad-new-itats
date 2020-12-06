@@ -32,7 +32,7 @@
                         <tbody>
                             @forelse ($dosens as $dosen)
                                 <tr>
-                                    <td>{{$dosen->nim}} </td>
+                                    <td>{{sprintf("%06d", $dosen->nim)}} </td>
                                     <td><a href="{{route('dosen.edit', $dosen)}} ">{{$dosen->nama}} </a></td>
                                     <td>{{$dosen->alamat}} </td>
                                     <td>{{$dosen->jenis_kelamin}} </td>

@@ -116,7 +116,7 @@
                 <tbody id="tableMhs">
                     @foreach ($mahasiswas as $mahasiswa)
                     <tr>
-                        <td>{{$mahasiswa->npm}}</td>
+                        <td>{{ sprintf("%06d", $mahasiswa->npm)}}</td>
                         <td>{{$mahasiswa->id_jurusan}}</td>
                         <td>{{$mahasiswa->nama}}</td>
                         <td>{{$mahasiswa->alamat}}</td>
