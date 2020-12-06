@@ -1,9 +1,9 @@
 <x-admin-master>
     @section('content')
         <h1> Edit Dosen</h1>
-        <form action="{{route('updateDosen', $dosen)}} " enctype="multipart/form-data"  method="post">
+        <form action="{{route('updateDosen', $dosen)}} " enctype="multipart/form-data"  method="put">
             @csrf
-            @method('PUT')
+            {{-- @method('PUT') --}}
             <div class="form-group">
                 <label for="title">NIM</label>
                 <input type="text"

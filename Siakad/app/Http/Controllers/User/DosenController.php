@@ -133,7 +133,7 @@ class DosenController extends Controller
 
         $dosen->save();
 
-        return redirect()->route('indexDosen')->with('success','Data Tersimpan');
+        return redirect()->route('dosen.index')->with('success','Data Tersimpan');
     }
 
     /**

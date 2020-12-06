@@ -22,12 +22,9 @@ Route::get('/masuk', 'HomeController@masuk')->name('masuk');
 Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::get('/admin', 'User\AdminController@index')->name('admin.index');
-
-    Route::get('/createDosen','User\DosenController@create')->name('dosen.create');
     Route::get('/dosen','User\DosenController@index')->name('dosen.index');
-    Route::post('/dosen','User\DosenController@store')->name('dosen.store');
+    Route::post('/dosen/create','User\DosenController@store')->name('dosen.store');
     Route::get('/dosen/create','User\DosenController@create')->name('dosen.create');
-    // Route::delete('/dosen/{nim}/delete','User\AdminController@destroy')->name('dosen.delete');
     Route::delete('/dosen/{nim}/delete','User\AdminController@destroy')->name('dosen.delete');
     #irul
 //    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
