@@ -30,20 +30,21 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($dosens as $dosen)
+                            @forelse ($dosens as $dosen)
                                 <tr>
                                     <td>{{$dosen->nim}} </td>
-                                    <td><a href="{{route('editDosen')}} ">{{$dosen->nama}} </a></td>
+                                    <td><a href="{{route('dosen.edit', $dosen)}} ">{{$dosen->nama}} </a></td>
                                     <td>{{$dosen->alamat}} </td>
                                     <td>{{$dosen->jenis_kelamin}} </td>
                                     <td>{{$dosen->email}} </td>
                                     <td>{{$dosen->no_telp}} </td>
                                     <td>
-                                        <form method="post" action="{{route('deleteDosen')}} " enctype="multipart/form-data">
+                                        <form method="POST" action="{{route('dosen.delete', $dosen)}} " enctype="multipart/form-data">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
+                                        {{-- <button href="{{route('dosen.delete', $dosen)}}" type="submit" class="btn btn-danger">Delete</button> --}}
                                     </td>
                                 </tr>
                             @endforeach

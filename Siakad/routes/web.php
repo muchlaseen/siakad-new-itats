@@ -27,13 +27,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/dosen','User\DosenController@index')->name('dosen.index');
     Route::post('/dosen','User\DosenController@store')->name('dosen.store');
     Route::get('/dosen/create','User\DosenController@create')->name('dosen.create');
-    Route::get('/dosen','User\DosenController@index')->name('indexDosen');
-    Route::post('/dosen/create','User\DosenController@store')->name('createDosenStore');
-    Route::delete('/dosen/delete','User\AdminController@destroy')->name('deleteDosen');
+    // Route::delete('/dosen/{nim}/delete','User\AdminController@destroy')->name('dosen.delete');
+    Route::delete('/dosen/{nim}/delete','User\AdminController@destroy')->name('dosen.delete');
     #irul
 //    Route::get('/editDosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
     #ilham
-    Route::get('dosen/{nim}/edit','User\DosenController@edit')->name('editDosen');
+    Route::get('/dosen/{nim}/edit','User\DosenController@edit')->name('dosen.edit');
     Route::put('/dosen/{nim}/edit','User\DosenController@update')->name('updateDosen');
 
     Route::get('/mahasiswa', 'User\MahasiswaController@index');

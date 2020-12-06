@@ -1,11 +1,7 @@
 <x-admin-master>
     @section('content')
     <h1> Create Dosen</h1>
-<<<<<<< HEAD
-    <form action="{{route('dosen.store')}}" enctype="multipart/form-data"  method="post">
-=======
-    <form action="{{route('createDosenStore')}} " enctype="multipart/form-data"  method="post">
->>>>>>> d39e273d53eace9d32d02d1188aa62a6c984a97c
+    <form action="{{route('dosen.store')}} " enctype="multipart/form-data"  method="post">
         @csrf
         <div class="form-group">
             <label for="title">NIM</label>

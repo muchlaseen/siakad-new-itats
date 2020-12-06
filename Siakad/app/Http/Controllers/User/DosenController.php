@@ -56,7 +56,7 @@ class DosenController extends Controller
             'alamat' => 'required',
             'kelamin' => 'required',
             'email' => 'required',
-            'no_telp' => 'required|min:13'
+            'no_telp' => 'required|min:11'
         ]);
 
         $dosen =  new Dosen();
@@ -92,7 +92,7 @@ class DosenController extends Controller
     public function edit($nim)
     {
         #irul
-//        $dosen = Dosen::find($nim);
+       $dosen = Dosen::find($nim);
 //
 //        return view('autentikasi/dosen/edit',[
 //            'title' => 'Edit ' . $nim,

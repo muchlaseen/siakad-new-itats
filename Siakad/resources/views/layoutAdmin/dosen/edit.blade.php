@@ -1,8 +1,9 @@
 <x-admin-master>
     @section('content')
         <h1> Edit Dosen</h1>
-        <form action="#" enctype="multipart/form-data"  method="post">
+        <form action="{{route('updateDosen', $dosen)}} " enctype="multipart/form-data"  method="post">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="title">NIM</label>
                 <input type="text"
@@ -11,7 +12,7 @@
                        id="nim"
                        aria-describedby=""
                        placeholder="Masukan NIM"
-                       value="07010">
+                       value="{{old('nim') ?? $dosen->nim}} ">
             </div>
             <div class="form-group">
                 <label for="title">Nama Lengkap</label>
@@ -21,7 +22,7 @@
                        id="nama"
                        aria-describedby=""
                        placeholder="Masukan Nama Lengkap"
-                       value="Kharisma Ilham Nusantara">
+                       value="{{$dosen->nama}} ">
             </div>
             <div class="form-group">
                 <label for="title">Alamat</label>
@@ -31,7 +32,7 @@
                        id="alamat"
                        aria-describedby=""
                        placeholder="Masukan Alamat"
-                       value="Taman, Sidoarjo">
+                       value="{{$dosen->alamat}} ">
             </div>
             <div class="form-group">
                 <label for="title">Jenis Kelamin</label>
@@ -41,7 +42,7 @@
                        id="kelamin"
                        aria-describedby=""
                        placeholder="Masukkan Kelaminmu"
-                       value="Laki - laki">
+                       value="{{$dosen->jenis_kelamin}} ">
             </div>
             <div class="form-group">
                 <label for="title">Email</label>
@@ -51,7 +52,7 @@
                        id="email"
                        aria-describedby=""
                        placeholder="Masukan Email"
-                       value="ilhamnusantara@gmail.com">
+                       value="{{$dosen->email}} ">
             </div>
             <div class="form-group">
                 <label for="title">Nomor Telepon</label>
@@ -61,7 +62,7 @@
                        id="no_telp"
                        aria-describedby=""
                        placeholder="Masukan nomor telpon"
-                       value="081331517861">
+                       value="{{$dosen->no_telp}} ">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
