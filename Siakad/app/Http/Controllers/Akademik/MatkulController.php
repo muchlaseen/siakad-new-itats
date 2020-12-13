@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Akademik\Fakultas;
+use App\Akademik\Matkul;
 
-class FakultasController extends Controller
+class MatkulController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,9 @@ class FakultasController extends Controller
      */
     public function index()
     {
-        $fakultas = Fakultas::paginate(5);
-
-        return view('layoutAdmin.fakultas.index ',[
-            'title' => 'List Fakultas',
-            'fakultass' => $fakultas,
+        $matkul = Matkul::paginate(5);
+        return view('',[
+            'matkuls' => $matkul
         ]);
     }
 
@@ -30,7 +28,7 @@ class FakultasController extends Controller
      */
     public function create()
     {
-        //
+        return view('');
     }
 
     /**
@@ -42,19 +40,18 @@ class FakultasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_fakultas' => 'required|min:1',
-            'nama_fakultas' => 'required|min:6'
+
         ]);
+        $matkul = new Matkul;
+        $matkul->kode_mk = $request->kode_mk;
+        $matkul->id_jurusan = $request->id_jurusan;
+        $matkul->nama_mk = $request->nama_mk;
+        $matkul->sks = $request->sks;
+        $matkul->semester = $request->semester;
 
-        $fakul = new Fakultas;
-        
-        $fakul->id_fakultas = $request->id;
-        $fakul->nama_fakultas = $request->name;
-
-        $fakul->save();
+        $matkul->save();
 
         return redirect()->route()->with('success','Data Tersimpan');
-
     }
 
     /**
@@ -74,9 +71,14 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_fakultas)
+    public function edit($kode_mk)
     {
-        return view();
+        $matkul = Matkul::find($kode_mk);
+
+        return view('',[
+            'title' => 'Edit' . $kode_mk,
+            'matkul' => $matkul
+        ]);
     }
 
     /**
@@ -86,16 +88,22 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_fakultas)
+    public function update(Request $request, $kode_mk)
     {
-        $fakul = Fakultas::find($id_fakultas);
+        $request->validate([
 
-        $fakul->id_fakultas = $request->id;
-        $fakul->nama_fakultas = $request->name;
+        ]);
 
-        $fakul->save();
+        $matkul = Matkul::find($kode_mk);
+        $matkul->kode_mk = $request->kode_mk;
+        $matkul->id_jurusan = $request->id_jurusan;
+        $matkul->nama_mk = $request->nama_mk;
+        $matkul->sks = $request->sks;
+        $matkul->semester = $request->semester;
 
-        return redirect()->route()->with('succes','Data Terupdate');
+        $matkul->save();
+        
+        return redirect('')->route()->with();
     }
 
     /**
@@ -104,11 +112,12 @@ class FakultasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_fakultas)
+    public function destroy($kode_mk)
     {
-        $fakul = Fakultas::find($id_fakultas);
+        $matkul = Matkul::find($kode_mk);
 
-        $fakul->delete();
-        return redirect()->back()->with();
+        $matkul->delete();
+
+        return redirect('')->route()->with();
     }
 }

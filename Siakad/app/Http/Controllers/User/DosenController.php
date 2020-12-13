@@ -16,6 +16,7 @@ class DosenController extends Controller
     public function index()
     {
         $dosen = Dosen::paginate(5);
+        // dd($dosen);
         // $dosen = Dosen::all();
         #irul
 //        return view('autentikasi.dosen.index',[
@@ -93,6 +94,7 @@ class DosenController extends Controller
     {
         #irul
        $dosen = Dosen::find($nim);
+       dd($nim);
 //
 //        return view('autentikasi/dosen/edit',[
 //            'title' => 'Edit ' . $nim,

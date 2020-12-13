@@ -35,8 +35,16 @@ Route::middleware('auth')->group(function(){
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update');
     Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy');
 
-
+    Route::get('/fakultas','Akademik\FakultasController@index')->name('fakultas.index');
+    Route::get('/fakultas/create','Akademik\FakultasController@create')->name('fakultas.create');
+    Route::post('/fakultas/create','Akademik\FakultasController@store')->name('fakultas.store');
+    Route::get('/fakultas/{id_fakultas}/edit','Akademik\FakultasController@edit')->name('fakultas.edit');
+    Route::put('/fakultas/{id_fakultas}/edit','Akademik\FakultasController@update')->name('fakultas.update');
+    Route::get('/fakultas/{id_fakultas}/delete','Akademik\FakultasController@destroy')->name('fakultas.delete');
 });
 
 Route::get('/jurusan', 'Akademik\JurusanController@create');
 
+Route::get('/mahasiswa', function () {
+    return view('Frontend/Mahasiswa/home');
+});
