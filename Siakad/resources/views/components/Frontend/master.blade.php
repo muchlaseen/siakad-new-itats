@@ -11,49 +11,57 @@
     <meta name="description"
         content="Xtreme Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Xtreme Admin Lite Template by WrapPixel</title>
+    {{-- <title>Xtreme Admin Lite Template by WrapPixel</title> --}}
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtreme-admin-lite/" />
+
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    {{-- <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png"> --}}
+
     <!-- Custom CSS -->
-    <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    {{-- <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet"> --}}
+    <link href="{{asset('css/xtreme/chartist.min.css')}} " rel="stylesheet" type="text/css" >
+
     <!-- Custom CSS -->
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    {{-- <link href="../../dist/css/style.min.css" rel="stylesheet"> --}}
+    <link href="{{asset('css/xtreme/style.min.css')}} " rel="stylesheet" type="text/css" >
+
+    {{-- <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> --}}
 </head>
 
 <body>
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
-    </div>
+    </div> --}}
 
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
         
-        @yield('header')
         
-        @yield('sidebar')
+        {{-- @include('components.Frontend.header') --}}
+        <x-Frontend.header></x-Frontend.header>
+
+        
+
+        {{-- @include('components.Frontend.sidebar') --}}
+        <x-Frontend.sidebar></x-Frontend.sidebar>
 
         @yield('content')
     </div>
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../dist/js/app-style-switcher.js"></script>
+    <script src="{{asset('js/xtreme/jquery.min.js')}}"></script>
+    <script src="{{asset('js/xtreme/popper.min.js')}}"></script>
+    <script src="{{asset('js/xtreme/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/xtreme/app-style-switcher.js')}}"></script>
     <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
+    <script src="{{asset('js/xtreme/waves.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="{{asset('js/xtreme/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
-    <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="{{asset('js/xtreme/custom.js')}}"></script>
+
 </body>
 
 </html>

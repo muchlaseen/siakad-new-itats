@@ -12,7 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
-    // .js('resources/js/admin.js', 'public/js')
-    // .sass('resources/sass/admin.scss', 'public/css/admin');
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/xtreme/app-style-switcher.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/jquery.min.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/popper.min.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/sidebarmenu.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/bootstrap.min.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/custom.js', 'public/js/xtreme')
+    .js('resources/js/xtreme/waves.js', 'public/js/xtreme');
     

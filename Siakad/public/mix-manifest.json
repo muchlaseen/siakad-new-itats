@@ -1,4 +1,11 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/xtreme/app-style-switcher.js": "/js/xtreme/app-style-switcher.js",
+    "/js/xtreme/bootstrap.min.js": "/js/xtreme/bootstrap.min.js",
+    "/js/xtreme/custom.js": "/js/xtreme/custom.js",
+    "/js/xtreme/jquery.min.js": "/js/xtreme/jquery.min.js",
+    "/js/xtreme/popper.min.js": "/js/xtreme/popper.min.js",
+    "/js/xtreme/sidebarmenu.js": "/js/xtreme/sidebarmenu.js",
+    "/js/xtreme/waves.js": "/js/xtreme/waves.js"
 }

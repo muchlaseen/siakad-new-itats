@@ -1,13 +1,10 @@
-@extends('components.Frontend.master')
-
-@section('sidebar')
 <aside class="left-sidebar" data-sidebarbg="skin6">
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li>
                     <div class="user-profile d-flex no-block dropdown m-t-20">
-                        <div class="user-pic"><img src="../../assets/images/users/1.jpg" alt="users"
+                        <div class="user-pic"><img src="#" alt="users"
                                 class="rounded-circle" width="40" /></div>
                         <div class="user-content hide-menu m-l-10">
                             <a href="javascript:void(0)" class="" id="Userdd" role="button"
@@ -37,11 +34,11 @@
                             class="hide-menu">KRS</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="pages-profile.html" aria-expanded="false"><i
-                            class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
+                            class="mdi mdi-book"></i><span class="hide-menu">KHS</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                            class="hide-menu">Table</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                        href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span
+                            class="hide-menu">Kelas</span></a></li>
+                {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
                             class="hide-menu">Icon</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -49,15 +46,9 @@
                             class="hide-menu">Blank</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                         href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
-                            class="hide-menu">404</span></a></li>
-                <li class="text-center p-40 upgrade-btn">
-                    <a href="https://wrappixel.com/templates/xtremeadmin/"
-                        class="btn btn-block btn-danger text-white" target="_blank">Upgrade to Pro</a>
-                </li>
+                            class="hide-menu">404</span></a></li> --}}
             </ul>
 
         </nav>
     </div>
 </aside>
-
-@endsection
