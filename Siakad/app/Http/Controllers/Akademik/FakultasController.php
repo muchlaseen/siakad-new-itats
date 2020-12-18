@@ -30,7 +30,7 @@ class FakultasController extends Controller
      */
     public function create()
     {
-        //
+        return view('layoutAdmin.fakultas.create');
     }
 
     /**
@@ -46,14 +46,14 @@ class FakultasController extends Controller
             'nama_fakultas' => 'required|min:6'
         ]);
 
-        $fakul = new Fakultas;
-        
-        $fakul->id_fakultas = $request->id;
-        $fakul->nama_fakultas = $request->name;
+        $fakul = new Fakultas();
+
+        $fakul->id_fakultas = $request->id_fakultas;
+        $fakul->nama_fakultas = $request->nama_fakultas;
 
         $fakul->save();
 
-        return redirect()->route()->with('success','Data Tersimpan');
+        return redirect()->route('fakultas.index')->with('success','Data Tersimpan');
 
     }
 
@@ -76,7 +76,8 @@ class FakultasController extends Controller
      */
     public function edit($id_fakultas)
     {
-        return view();
+        $fakultas = Fakultas::find($id_fakultas);
+        return view('layoutAdmin.fakultas.edit')->with('fakultas', $fakultas);
     }
 
     /**
@@ -88,14 +89,18 @@ class FakultasController extends Controller
      */
     public function update(Request $request, $id_fakultas)
     {
-        $fakul = Fakultas::find($id_fakultas);
+        $request->validate([
+            'id_fakultas' => 'required',
+            'nama_fakultas' => 'required'
+        ]);
 
-        $fakul->id_fakultas = $request->id;
-        $fakul->nama_fakultas = $request->name;
+        $fakultas = Fakultas::find($id_fakultas);
+        $fakultas->id_fakultas = $request->id_fakultas;
+        $fakultas->nama_fakultas = $request->nama_fakultas;
 
-        $fakul->save();
+        $fakultas->save();
 
-        return redirect()->route()->with('succes','Data Terupdate');
+        return redirect()->route('fakultas.index')->with('succes','Data Terupdate');
     }
 
     /**
@@ -106,9 +111,10 @@ class FakultasController extends Controller
      */
     public function destroy($id_fakultas)
     {
-        $fakul = Fakultas::find($id_fakultas);
+        $fakultas = Fakultas::find($id_fakultas);
 
-        $fakul->delete();
-        return redirect()->back()->with();
+        $fakultas->delete();
+        return redirect()->back()->with('warning','Data Terhapus');
+
     }
 }
