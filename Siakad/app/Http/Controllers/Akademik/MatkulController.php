@@ -16,7 +16,7 @@ class MatkulController extends Controller
     public function index()
     {
         $matkul = Matkul::paginate(5);
-        return view('',[
+        return view('layoutAdmin.matkul.index',[
             'matkuls' => $matkul
         ]);
     }
