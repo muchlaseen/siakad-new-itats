@@ -39,7 +39,6 @@ class DosenController extends Controller
      */
     public function create()
     {
-        #ilham
         return view('layoutAdmin.dosen.create');
     }
 
@@ -92,17 +91,8 @@ class DosenController extends Controller
      */
     public function edit($nim)
     {
-        #irul
        $dosen = Dosen::find($nim);
-       dd($nim);
-//
-//        return view('autentikasi/dosen/edit',[
-//            'title' => 'Edit ' . $nim,
-//            'dosen' => $dosen,
-//        ]);
-        #ilham
         return view('layoutAdmin.dosen.edit',
-        #irul
         [
             'title' => 'Edit ' . $nim,
             'dosen' => $dosen,

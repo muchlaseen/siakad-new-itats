@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/fakultas/create','Akademik\FakultasController@create')->name('fakultas.create');
     Route::post('/fakultas/create','Akademik\FakultasController@store')->name('fakultas.store');
     Route::get('/fakultas/{id_fakultas}/edit','Akademik\FakultasController@edit')->name('fakultas.edit');
-    Route::put('/fakultas/{id_fakultas}/edit','Akademik\FakultasController@update')->name('fakultas.update');
+    Route::put('/fakultas/{id_fakultas}/update','Akademik\FakultasController@update')->name('fakultas.update');
     Route::get('/fakultas/{id_fakultas}/delete','Akademik\FakultasController@destroy')->name('fakultas.delete');
 });
 

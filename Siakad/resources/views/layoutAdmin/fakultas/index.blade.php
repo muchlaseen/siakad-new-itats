@@ -6,7 +6,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Table Fakultas</h6>
             </div>
             <div class="card-body">
-                <form method="post" action="#">
+                <form method="get" action="{{route('fakultas.create')}}">
                         <button class="btn btn-success btn-lg float-right" type="submit">
                             Create
                         </button>
@@ -30,14 +30,11 @@
                         <tbody>
                             @foreach ($fakultass as $fakultas)
                                 <tr>
-                                    <td>{{sprintf("%06d", $fakultas->id_fakultas)}} </td>
-                                    <td><a href="{{route('fakultas.edit', $fakultas->id_fakultas)}} ">{{$fakultas->nama_fakultas}} </a></td>
+                                    <td>{{sprintf($fakultas->id_fakultas)}} </td>
+                                    <td>{{$fakultas->nama_fakultas}} </a></td>
                                     <td>
-                                        <a href="{{route('fakultas.delete', $fakultas->id_fakultas)}}" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                        <a href="{{route('fakultas.edit',$fakultas->id_fakultas)}} " class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <a href="{{route('fakultas.delete', $fakultas)}}" class="btn btn-danger" onclick="return confirm('Data akan dihapus, lanjutkan?')"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
