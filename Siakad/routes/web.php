@@ -48,3 +48,11 @@ Route::get('/jurusan', 'Akademik\JurusanController@create');
 Route::get('/mahasiswa', function () {
     return view('Frontend/Mahasiswa/home');
 });
+
+Route::get('/mahasiswa/krs', function () {
+    return view ('Frontend/Mahasiswa/KRS');
+});
+
+Route::get('/coba', function () {
+    return view ('Frontend/Mahasiswa/coba');
+});

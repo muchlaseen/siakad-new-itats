@@ -1,54 +1,20 @@
-<aside class="left-sidebar" data-sidebarbg="skin6">
-    <div class="scroll-sidebar">
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-                <li>
-                    <div class="user-profile d-flex no-block dropdown m-t-20">
-                        <div class="user-pic"><img src="#" alt="users"
-                                class="rounded-circle" width="40" /></div>
-                        <div class="user-content hide-menu m-l-10">
-                            <a href="javascript:void(0)" class="" id="Userdd" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h5 class="m-b-0 user-name font-medium">Steave Jobs <i
-                                        class="fa fa-angle-down"></i></h5>
-                                <span class="op-5 user-email">varun@gmail.com</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Userdd">
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-email m-r-5 m-l-5"></i> Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="index.html" aria-expanded="false"><i class="mdi mdi-note-multiple"></i><span
-                            class="hide-menu">KRS</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="pages-profile.html" aria-expanded="false"><i
-                            class="mdi mdi-book"></i><span class="hide-menu">KHS</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span
-                            class="hide-menu">Kelas</span></a></li>
-                {{-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                            class="hide-menu">Icon</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="starter-kit.html" aria-expanded="false"><i class="mdi mdi-file"></i><span
-                            class="hide-menu">Blank</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                        href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
-                            class="hide-menu">404</span></a></li> --}}
-            </ul>
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Start Bootstrap </div>
 
-        </nav>
+    {{-- <div class="header">
+        <div class="sidebar-heading">Start Bootstrap </div>
+        <i class="fas fa-times cancel menu-toggle mr-0"></i>
+    </div> --}}
+    
+    {{-- <span class="menu-toggle">
+        <i class="fas fa-arrow-left"></i>
+    </span> --}}
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+      <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
     </div>
-</aside>
+  </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Akademik\Matkul;
+
 class KRSController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class KRSController extends Controller
      */
     public function index()
     {
-        //
+        return view ('Frontend.Mahasiswa.KRS');
     }
 
     /**

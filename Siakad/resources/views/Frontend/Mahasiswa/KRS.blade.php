@@ -1,5 +1,6 @@
 @extends('components.Frontend.master')
     @section('content')
+    <div class="container-fluid">
         <div class="row">
             <!-- column -->
             <div class="col-12">
@@ -132,4 +133,5 @@
                 </div>
             </div>
         </div>
+    </div>
     @endsection
