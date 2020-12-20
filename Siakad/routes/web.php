@@ -22,12 +22,14 @@ Route::get('/masuk', 'HomeController@masuk')->name('masuk');
 Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::get('/admin', 'User\AdminController@index')->name('admin.index');
-    Route::get('/dosen','User\DosenController@index')->name('dosen.index');
-    Route::post('/dosen/create','User\DosenController@store')->name('dosen.store');
-    Route::get('/dosen/create','User\DosenController@create')->name('dosen.create');
-    Route::get('/dosen/{nim}/delete','User\DosenController@destroy')->name('dosen.delete');
-    Route::get('/dosen/{nim}/edit','User\DosenController@edit')->name('dosen.edit');
-    Route::put('/dosen/{nim}/update','User\DosenController@update')->name('dosen.update');
+    Route::get('/admin/dosen','User\DosenController@index')->name('dosen.index');
+    Route::post('/admin/dosen/create','User\DosenController@store')->name('dosen.store');
+    Route::get('/admin/dosen/create','User\DosenController@create')->name('dosen.create');
+    Route::get('/admin/dosen/{nim}/delete','User\DosenController@destroy')->name('dosen.delete');
+    Route::get('/admin/dosen/{nim}/edit','User\DosenController@edit')->name('dosen.edit');
+    Route::put('/admin/dosen/{nim}/update','User\DosenController@update')->name('dosen.update');
+
+    Route::get('/admin/mahasiswa','User\MahasiswaController@index')->name('mahasiswa.index');
 
     Route::get('/mahasiswa', 'User\MahasiswaController@index');
     Route::post('/mahasiswa/create', 'User\MahasiswaController@create');
