@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Akademik\Matkul;
+use App\Akademik\Jurusan;
 
 class MatkulController extends Controller
 {
@@ -15,9 +17,12 @@ class MatkulController extends Controller
      */
     public function index()
     {
+        $jurusan = Jurusan::all();
+
         $matkul = Matkul::paginate(5);
         return view('layoutAdmin.matkul.index',[
-            'matkuls' => $matkul
+            'matkuls' => $matkul,
+            'jurusans' => $jurusan
         ]);
     }
 
