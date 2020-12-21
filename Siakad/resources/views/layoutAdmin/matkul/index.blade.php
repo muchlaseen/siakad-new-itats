@@ -108,7 +108,7 @@
                     </tr>
                 </thead>
                 <tbody id="tableMhs">
-                    @foreach ($mahasiswas as $mahasiswa)
+                    {{-- @foreach ($mahasiswas as $mahasiswa)
                     <tr>
                         <td>{{ sprintf("%06d", $mahasiswa->npm)}}</td>
                         <td>{{$mahasiswa->id_jurusan}}</td>
@@ -124,7 +124,7 @@
                         <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
         
                     </tr>  
-                @endforeach
+                @endforeach --}}
                 </tbody>
                
             </table>
