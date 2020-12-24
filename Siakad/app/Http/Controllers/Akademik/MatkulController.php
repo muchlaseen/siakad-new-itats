@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Akademik\Matkul;
+use App\Akademik\Jurusan;
 
 class MatkulController extends Controller
 {
@@ -15,9 +18,18 @@ class MatkulController extends Controller
      */
     public function index()
     {
-        $matkul = Matkul::paginate(5);
+        $jurusan = Jurusan::all();
+
+        // $matkul = Matkul::paginate(5);
+
+        $matkul = DB::table('matkuls')
+        ->select('*','jurusans.nama_jurusan')
+        ->join('jurusans','matkuls.id_jurusan','jurusans.id_jurusan')
+        ->get();
+
         return view('layoutAdmin.matkul.index',[
-            'matkuls' => $matkul
+            'matkuls' => $matkul,
+            'jurusans' => $jurusan
         ]);
     }
 

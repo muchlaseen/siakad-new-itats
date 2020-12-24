@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::put('/admin/jurusan/{id_jurusan}/update','Akademik\JurusanController@update')->name('jurusan.update');
     
 
-    Route::get('/matkul','Akademik\MatkulController@index')->name('matkul.index');
+    Route::get('/admin/matkul','Akademik\MatkulController@index')->name('matkul.index');
 });
 
 // Route::get('/jurusan', 'Akademik\JurusanController@create');
