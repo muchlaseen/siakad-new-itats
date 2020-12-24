@@ -8,6 +8,7 @@ class Jurusan extends Model
 {
     protected $primarykey = 'id_jurusan';
     protected $guard = [];
+    protected $table = 'jurusans';
 
     public function user()
     {

@@ -108,6 +108,16 @@
                     </tr>
                 </thead>
                 <tbody id="tableMhs">
+                    @foreach ($matkuls as $matkul)
+                    <tr>
+                        <td>{{$matkul->kode_mk}} </td>
+                        <td>{{$matkul->nama_jurusan}} </td>
+                        <td>{{$matkul->nama_mk}} </td>
+                        <td>{{$matkul->sks}} </td>
+                        <td>{{$matkul->semester}} </td>
+                    </tr>
+                        
+                    @endforeach
                     {{-- @foreach ($mahasiswas as $mahasiswa)
                     <tr>
                         <td>{{ sprintf("%06d", $mahasiswa->npm)}}</td>

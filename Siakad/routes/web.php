@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function(){
     Route::put('/fakultas/{id_fakultas}/update','Akademik\FakultasController@update')->name('fakultas.update');
     Route::get('/fakultas/{id_fakultas}/delete','Akademik\FakultasController@destroy')->name('fakultas.delete');
 
-    Route::get('/matkul','Akademik\MatkulController@index')->name('matkul.index');
+    Route::get('/admin/matkul','Akademik\MatkulController@index')->name('matkul.index');
 });
 
 Route::get('/jurusan', 'Akademik\JurusanController@create');
