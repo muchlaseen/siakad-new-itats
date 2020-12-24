@@ -19,10 +19,17 @@ class JurusanController extends Controller
     {
         $jurusan = Jurusan::paginate(5);
 
-        return view('',[
+        return view('layoutAdmin.jurusan.index',[
             'title' => 'List Jurusan',
-            'jurusans' => $jurusan
+            'jurusans' => $jurusan,
         ]);
+
+    //     $fakultas = Fakultas::paginate(5);
+
+    //     return view('layoutAdmin.fakultas.index ',[
+    //         'title' => 'List Fakultas',
+    //         'fakultass' => $fakultas,
+    //     ]);
     }
 
     /**
@@ -32,18 +39,10 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        $fakultas = Fakultas::select(['id_fakultas','nama_fakultas'], [2])->get();
+        // $fakultas = Fakultas::select(['id_fakultas','nama_fakultas'], [2])->get();
+        $fakultass = Fakultas::all();
 
-        // $fakultas = Fakultas::selectRaw('id_fakultas')->groupBy('id_fakultas')->get();
-        // cara  mendapatkan id_fakultas dari tabel fakultass
-
-        // $fakultas = Fakultas::orderBy('id_fakultas')->get();
-
-        // dd($fakultas);
-
-        return view('layoutAdmin.jurusan.index',[
-            'fakultass' => $fakultas
-        ]);
+        return view('layoutAdmin.jurusan.create',compact('fakultass'));
     }
 
     /**
@@ -57,19 +56,21 @@ class JurusanController extends Controller
         // $fakultas = Fakultas::class;
 
         $request->validate([
+            'id_jurusan' => 'required|min:1',
             'id_fakultas' => 'required|min:1',
             'kode_jurusan' => 'required|min:1',
             'nama_jurusan' => 'required|min:6'
         ]);
 
-        $jurusan = Jurusan::class;
+        $jurusan = new Jurusan();
         $jurusan->id_jurusan = $request->id_jurusan;
         $jurusan->id_fakultas = $request->id_fakultas;
         $jurusan->kode_jurusan = $request->kode_jurusan;
+        $jurusan->nama_jurusan = $request->nama_jurusan;
 
         $jurusan->save();
 
-        return redirect()->route()->with();
+        return redirect()->route('jurusan.index')->with('success','Data Tersimpan');
     }
 
     /**
@@ -92,11 +93,15 @@ class JurusanController extends Controller
     public function edit($id_jurusan)
     {
         $jurusan = Jurusan::find($id_jurusan);
+        return view('layoutAdmin.jurusan.edit')->with('jurusan', $jurusan);
 
-        return view('',[
-            'title' => 'Edit Jurusan'. $id_jurusan,
-            'jurusan' => $jurusan
-        ]);
+        // return view('layoutAdmin.jurusan.edit',[
+        //     'title' => 'Edit Jurusan'. $id_jurusan,
+        //     'jurusan' => $jurusan
+        // ]);
+
+        // $fakultas = Fakultas::find($id_fakultas);
+        // return view('layoutAdmin.fakultas.edit')->with('fakultas', $fakultas);
 
     }
 
@@ -134,6 +139,9 @@ class JurusanController extends Controller
      */
     public function destroy($id_jurusan)
     {
-        Jurusan::delete('id_jurusan', [$id_jurusan]);
+        $jurusan = Jurusan::find($id_jurusan);
+
+        $jurusan->delete();
+        return redirect()->back()->with('warning','Data Terhapus');
     }
 }

@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Jurusan extends Model
 {
     protected $primarykey = 'id_jurusan';
+    protected $fillabel = ['id_jurusan','id_fakultas','kode_jurusan','nama_jurusan'];
     protected $guard = [];
+    protected $table = 'jurusans';
 
-    public function user()
+    public function fakultas()
     {
-        return $this->belongsTo(Fakultas::class, 'id_fakultas', 'id_fakultas');
-        //                          model           foreignkey      pemilik key
+        return $this->belongsTo('App\Akademik\Fakultas', 'id_fakultas');
     }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo(Fakultas::class, 'id_fakultas', 'id_fakultas');
+    //     //                          model           foreignkey      pemilik key
+    // }
 
     public function comments()
     {

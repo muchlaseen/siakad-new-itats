@@ -1,10 +1,10 @@
 <x-admin-master>
     @section('content')
-    <h1> Create Dosen</h1>
-    <form action="#" enctype="multipart/form-data"  method="post">
+    <h1> Create Fakultas</h1>
+    <form action="{{route('fakultas.store')}}" enctype="multipart/form-data"  method="post">
         @csrf
         <div class="form-group">
-            <label for="title"Id Fakultas</label>
+            <label for="title">Id Fakultas</label>
             <input type="text"
                    name="id_fakultas"
                    class="form-control"
