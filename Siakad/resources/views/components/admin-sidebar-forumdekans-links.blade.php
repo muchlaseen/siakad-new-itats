@@ -9,7 +9,7 @@
             <a class="collapse-item" href="{{route('fakultas.index')}}">Form Fakultas</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Jurusan</h6>
-            <a class="collapse-item" href="#">Form Jurusan</a>
+            <a class="collapse-item" href="{{route('jurusan.index')}}">Form Jurusan</a>
             <h6 class="collapse-header">Mata Kuliah</h6>
             <a class="collapse-item" href="{{route('matkul.index')}} ">Form Mata Kuliah</a>
         </div>

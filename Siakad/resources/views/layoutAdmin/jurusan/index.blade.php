@@ -1,24 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <select id="id jurusan">
-        {{-- <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option> --}}
-      
-        @forelse ($fakultass as $fakul)
-            <option value="{{$fakul->id_fakultas}}">{{$fakul->nama_fakultas}}</option>
-            {{-- <p>
-                {{$fakul->id_fakultas}}
-            </p> --}}
-        @endforeach
-    </select>
-</body>
-</html>
+<x-admin-master>
+    @section('content')
+        <h1>{{$title}} </h1>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Table Jurusan</h6>
+            </div>
+            <div class="card-body">
+                <form method="get" action="{{route('jurusan.create')}}">
+                        <button class="btn btn-success btn-lg float-right" type="submit">
+                            Create
+                        </button>
+                </form>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Id Jurusan</th>
+                            <th>Id Fakultas</th>
+                            <th>Nama Fakultas</th>
+                            <th>Kode Jurusan</th>
+                            <th>Nama Jurusan</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Id Jurusan</th>
+                            <th>Id Fakultas</th>
+                            <th>Nama Fakultas</th>
+                            <th>Kode Jurusan</th>
+                            <th>Nama Jurusan</th>
+                            <th>Action</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach ($jurusans as $jurusan)
+                                <tr>
+                                    <td>{{$jurusan->id_jurusan}} </td>
+                                    <td>{{$jurusan->id_fakultas}} </td>
+                                    <td>{{$jurusan->fakultas->nama_fakultas}}</td>
+                                    <th>{{$jurusan->kode_jurusan}}</th>
+                                    <td>{{$jurusan->nama_jurusan}} </a></td>
+                                    <td>
+                                        <a href="{{route('jurusan.edit',$jurusan->id_jurusan)}} " class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger" onclick="return confirm('Data akan dihapus, lanjutkan?')"><i class="far fa-trash-alt"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    @endsection
+        @section('scripts')
+        <!-- Page level plugins -->
+            <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+            <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+        @endsection
+</x-admin-master>

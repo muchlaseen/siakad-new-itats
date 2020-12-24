@@ -12,15 +12,20 @@ class Fakultas extends Model
     protected $primaryKey = 'id_fakultas';
     protected $table = 'fakultass';
 
-    public function roles()
+    public function jurusan()
     {
-        return $this->belongsToMany(Jurusan::class, 'jurusans');
+        return $this->hasMany('App\Akademik\Jurusan');
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Jurusan::class, 'id_fakultas', 'id_fakultas');
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Jurusan::class, 'jurusans');
+    // }
+
+    // public function comments()
+    // {
+    //     return $this->hasMany(Jurusan::class, 'id_fakultas', 'id_fakultas');
+    // }
     public function user(){
         return $this->belongsTo(User::class);
     }

@@ -37,18 +37,26 @@ Route::middleware('auth')->group(function(){
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update');
     Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy');
 
-    Route::get('/fakultas','Akademik\FakultasController@index')->name('fakultas.index');
-    Route::get('/fakultas/create','Akademik\FakultasController@create')->name('fakultas.create');
-    Route::post('/fakultas/create','Akademik\FakultasController@store')->name('fakultas.store');
-    Route::get('/fakultas/{id_fakultas}/edit','Akademik\FakultasController@edit')->name('fakultas.edit');
-    Route::put('/fakultas/{id_fakultas}/update','Akademik\FakultasController@update')->name('fakultas.update');
-    Route::get('/fakultas/{id_fakultas}/delete','Akademik\FakultasController@destroy')->name('fakultas.delete');
+    Route::get('/admin/fakultas','Akademik\FakultasController@index')->name('fakultas.index');
+    Route::get('/admin/fakultas/create','Akademik\FakultasController@create')->name('fakultas.create');
+    Route::post('/admin/fakultas/create','Akademik\FakultasController@store')->name('fakultas.store');
+    Route::get('/admin/fakultas/{id_fakultas}/edit','Akademik\FakultasController@edit')->name('fakultas.edit');
+    Route::put('/admin/fakultas/{id_fakultas}/update','Akademik\FakultasController@update')->name('fakultas.update');
+    Route::get('/admin/fakultas/{id_fakultas}/delete','Akademik\FakultasController@destroy')->name('fakultas.delete');
+
+    Route::get('/admin/jurusan','Akademik\JurusanController@index')->name('jurusan.index');
+    Route::get('/admin/jurusan/create','Akademik\JurusanController@create')->name('jurusan.create');
+    Route::post('/admin/jurusan/create','Akademik\JurusanController@store')->name('jurusan.store');
+    Route::get('/admin/jurusan/{id_jurusan}/delete','Akademik\JurusanController@destroy')->name('jurusan.delete');
+    Route::get('/admin/jurusan/{id_jurusan}/edit','Akademik\JurusanController@edit')->name('jurusan.edit');
+    Route::put('/admin/jurusan/{id_jurusan}/update','Akademik\JurusanController@update')->name('jurusan.update');
+    
 
     Route::get('/admin/matkul','Akademik\MatkulController@index')->name('matkul.index');
     Route::post('/admin/matkul/create','Akademik\MatkulController@store')->name('matkul.store');
 });
 
-Route::get('/jurusan', 'Akademik\JurusanController@create');
+// Route::get('/jurusan', 'Akademik\JurusanController@create');
 
 Route::get('/mahasiswa', function () {
     return view('Frontend/Mahasiswa/home');
