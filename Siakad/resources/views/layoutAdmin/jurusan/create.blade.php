@@ -19,12 +19,6 @@
                     <option value="{{$fakultas->id_fakultas}}">{{$fakultas->nama_fakultas}}</option>
                     @endforeach
                 </select>
-            <!-- <input type="text"
-                   name="id_fakultas"
-                   class="form-control"
-                   id="id_fakultas"
-                   aria-describedby=""
-                   placeholder="Masukan id_fakultas"> -->
         </div>
         <div class="form-group">
             <label for="title">Kode Jurusan</label>

@@ -92,8 +92,9 @@ class JurusanController extends Controller
      */
     public function edit($id_jurusan)
     {
-        $jurusan = Jurusan::find($id_jurusan);
-        return view('layoutAdmin.jurusan.edit')->with('jurusan', $jurusan);
+        $fakultass = Fakultas::all();
+        $jurusan = Jurusan::with('fakultas')->find($id_jurusan);
+        return view('layoutAdmin.jurusan.edit',compact('fakultass'))->with('jurusan', $jurusan);
 
         // return view('layoutAdmin.jurusan.edit',[
         //     'title' => 'Edit Jurusan'. $id_jurusan,
@@ -114,21 +115,23 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id_jurusan)
     {
-        $jurusan = Jurusan::find($id_jurusan);
 
         $request->validate([
+            'id_jurusan' => 'required|min:1',
             'id_fakultas' => 'required|min:1',
             'kode_jurusan' => 'required|min:1',
             'nama_jurusan' => 'required|min:6'
         ]);
 
+        $jurusan = Jurusan::find($id_jurusan);
         $jurusan->id_jurusan = $request->id_jurusan;
         $jurusan->id_fakultas = $request->id_fakultas;
         $jurusan->kode_jurusan = $request->kode_jurusan;
+        $jurusan->nama_jurusan = $request->nama_jurusan;
 
         $jurusan->save();
 
-        return redirect()->route()->with('success','Data Telah Di Update');
+        return redirect()->route('jurusan.index')->with('success','Data Telah Di Update');
     }
 
     /**

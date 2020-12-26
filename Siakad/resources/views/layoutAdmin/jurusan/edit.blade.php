@@ -14,13 +14,13 @@
                    value="{{$jurusan->id_jurusan}}">
         </div>
         <div class="form-group">
-            <label for="title">Id Fakultas</label>
-            <input type="text"
-                   name="id_fakultas"
-                   class="form-control"
-                   id="id_fakultas"
-                   aria-describedby=""
-                   value="{{$jurusan->id_fakultas}}">
+            <label for="title">Nama Fakultas</label>
+                <select class="form-control select" style="width: 100%;" name="id_fakultas" id="id_fakultas">
+                <option disable value class="fas fa-check">{{$jurusan->fakultas->nama_fakultas}}</option>
+                    @foreach ($fakultass as $fakultas)
+                    <option value="{{$fakultas->id_fakultas}}">{{$fakultas->nama_fakultas}}</option>
+                    @endforeach
+                </select>
         </div>
         <div class="form-group">
             <label for="title">Kode Jurusan</label>
