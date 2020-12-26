@@ -63,7 +63,7 @@ class MatkulController extends Controller
 
         $matkul->save();
 
-        return redirect()->route()->with('success','Data Tersimpan');
+        return redirect()->back()->with('success','Data Tersimpan');
     }
 
     /**

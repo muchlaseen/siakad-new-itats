@@ -37,19 +37,15 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="javascript:" method="POST">
+                                <form action="{{route('matkul.store')}}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                     <label for="inputKode">Kode Mata Kuliah</label>
-                                    <input name="kode_matkul" type="number" class="form-control" id="inputKode" aria-describedby="emailHelp">
+                                    <input name="kode_mk" type="number" class="form-control" id="inputKode" aria-describedby="emailHelp">
                                     </div>
-                                    {{-- <div class="form-group">
-                                        <label for="inputIdJurusan">ID Jurusan</label>
-                                        <input name="id_jurusan" type="text" class="form-control" id="inputIdJurusan" aria-describedby="emailHelp">
-                                    </div> --}}
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Nama Jurusan</label>
-                                        <select name="id_juruasan" class="form-control" id="exampleFormControlSelect1">
+                                        <select name="id_jurusan" class="form-control" id="exampleFormControlSelect1">
                                         @foreach ($jurusans as $jurusan)
                                             <option value={{$jurusan->id_jurusan}}>{{$jurusan->nama_jurusan}} </option>
                                         @endforeach
@@ -81,7 +77,7 @@
                                         <option value=8>8</option>
                                         </select>
                                     </div>
-                                
+
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -115,26 +111,12 @@
                         <td>{{$matkul->nama_mk}} </td>
                         <td>{{$matkul->sks}} </td>
                         <td>{{$matkul->semester}} </td>
+                        <td><a href="" class="btn-warning btn-sm">Edit</td>
+                        <td><a href="" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
                     </tr>
                         
                     @endforeach
-                    {{-- @foreach ($mahasiswas as $mahasiswa)
-                    <tr>
-                        <td>{{ sprintf("%06d", $mahasiswa->npm)}}</td>
-                        <td>{{$mahasiswa->id_jurusan}}</td>
-                        <td>{{$mahasiswa->nama}}</td>
-                        <td>{{$mahasiswa->alamat}}</td>
-                        <td>{{$mahasiswa->jenis_kelamin}}</td>
-                        <td>{{$mahasiswa->email}}</td>
-                        <td>{{$mahasiswa->no_telp}}</td>
-                        <td>{{$mahasiswa->tempat_lahir}}</td>
-                        <td>{{$mahasiswa->tgl_lahir}}</td>
-                        <td>{{$mahasiswa->agama}}</td>
-                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
-                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
-        
-                    </tr>  
-                @endforeach --}}
+
                 </tbody>
                
             </table>

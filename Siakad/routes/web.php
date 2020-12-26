@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function(){
     
 
     Route::get('/admin/matkul','Akademik\MatkulController@index')->name('matkul.index');
+    Route::post('/admin/matkul/create','Akademik\MatkulController@store')->name('matkul.store');
 });
 
 // Route::get('/jurusan', 'Akademik\JurusanController@create');
