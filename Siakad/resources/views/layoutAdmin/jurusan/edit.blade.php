@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="title">Nama Fakultas</label>
                 <select class="form-control select" style="width: 100%;" name="id_fakultas" id="id_fakultas">
-                <option disable value class="fas fa-check">{{$jurusan->fakultas->nama_fakultas}}</option>
+                <option value="{{$jurusan->fakultas->id_fakultas}}" class="fas fa-check">{{$jurusan->fakultas->nama_fakultas}}</option>
                     @foreach ($fakultass as $fakultas)
                     <option value="{{$fakultas->id_fakultas}}">{{$fakultas->nama_fakultas}}</option>
                     @endforeach

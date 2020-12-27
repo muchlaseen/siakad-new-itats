@@ -1,4 +1,3 @@
-<!-- @extends('components.master') -->
 <x-admin-master>
     @section('content')
                 @if (session('success'))
@@ -45,7 +44,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputJurusan">ID Jurusan</label>
-                                                <input name="id_jurusan" type="text" class="form-control" id="inputJurusan" aria-describedby="emailHelp">
+                                                <select class="form-control select2" style="width: 100%;" name="id_jurusan" id="inputJurusan">
+                                                    <option disable value>Pilih Jurusan</option>
+                                                    @foreach ($jurusans as $jurusan)
+                                                    <option value="{{$jurusan->id_jurusan}}">{{$jurusan->nama_jurusan}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputNama">Nama</label>
@@ -127,7 +131,7 @@
                         <td>{{$mahasiswa->tgl_lahir}}</td>
                         <td>{{$mahasiswa->agama}}</td>
                         <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
-                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/delete" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
+                        <td><a href="{{route('mahasiswa.delete', $mahasiswa)}}" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
         
                     </tr>  
                 @endforeach

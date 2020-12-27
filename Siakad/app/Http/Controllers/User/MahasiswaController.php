@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User\Mahasiswa;
+use App\Akademik\Jurusan;   
 
 class MahasiswaController extends Controller
 {
@@ -16,7 +17,8 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::all();
-        return view('layoutAdmin.mahasiswa.index', ['mahasiswas' => $mahasiswa]);
+        $jurusans = Jurusan::all();
+        return view('layoutAdmin.mahasiswa.index',compact('jurusans'), ['mahasiswas' => $mahasiswa]);
     }
 
     /**
@@ -27,7 +29,7 @@ class MahasiswaController extends Controller
     public function create(Request $request)
     {
         \App\User\Mahasiswa::create($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -60,8 +62,9 @@ class MahasiswaController extends Controller
      */
     public function edit($npm)
     {
+        $jurusans = Jurusan::all();
         $mahasiswa = Mahasiswa::find($npm);
-        return view('layoutAdmin.mahasiswa.edit', ['mahasiswas' => $mahasiswa]);
+        return view('layoutAdmin.mahasiswa.edit',compact('jurusans'), ['mahasiswas' => $mahasiswa]);
     }
 
     /**
@@ -75,7 +78,7 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::find($npm);
         $mahasiswa->update($request->all());
-        return redirect('/mahasiswa')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -88,6 +91,6 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::find($npm);
         $mahasiswa->delete();
-        return redirect('/mahasiswa')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil dihapus');
     }
 }
