@@ -17,7 +17,12 @@
                 </div>
                 <div class="form-group">
                     <label for="inputJurusan">ID Jurusan</label>
-                    <input name="id_jurusan" type="text" class="form-control" id="inputJurusan" aria-describedby="emailHelp" value="{{$mahasiswas->id_jurusan}}">
+                    <select class="form-control select" style="width: 100%;" name="id_jurusan" id="inputJurusan">
+                        <option value="{{$mahasiswas->jurusan->id_jurusan}}" class="fas fa-check">{{$mahasiswas->jurusan->nama_jurusan}}</option>
+                        @foreach ($jurusans as $jurusan)
+                        <option value="{{$jurusan->id_jurusan}}">{{$jurusan->nama_jurusan}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="inputNama">Nama</label>
