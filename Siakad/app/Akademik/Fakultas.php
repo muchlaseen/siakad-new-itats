@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fakultas extends Model
 {
     protected $guard = [];
-    protected $fillabel = ['id_fakultas','nama_fakultas'];
+    protected $fillable = ['id_fakultas','nama_fakultas'];
     protected $primaryKey = 'id_fakultas';
     protected $table = 'fakultass';
 

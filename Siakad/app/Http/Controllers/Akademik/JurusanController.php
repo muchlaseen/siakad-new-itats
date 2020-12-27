@@ -18,7 +18,7 @@ class JurusanController extends Controller
     public function index()
     {
         $jurusan = Jurusan::paginate(5);
-
+        
         return view('layoutAdmin.jurusan.index',[
             'title' => 'List Jurusan',
             'jurusans' => $jurusan,

@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 use App\Akademik\Matkul;
 use App\Akademik\Jurusan;
+use Log;
 
 class MatkulController extends Controller
 {
@@ -19,13 +19,15 @@ class MatkulController extends Controller
     public function index()
     {
         $jurusan = Jurusan::all();
+        $matkul = Matkul::join('jurusans as js','js.id_jurusan','=','matkuls.id_jurusan')->selectRaw('matkuls.*,js.nama_jurusan')->get();
 
-        // $matkul = Matkul::paginate(5);
+        // $matkul = DB::table('matkuls')
+        // ->select('*','jurusans.nama_jurusan')
+        // ->join('jurusans','matkuls.id_jurusan','jurusans.id_jurusan')
+        // ->get();
 
-        $matkul = DB::table('matkuls')
-        ->select('*','jurusans.nama_jurusan')
-        ->join('jurusans','matkuls.id_jurusan','jurusans.id_jurusan')
-        ->get();
+        // Log::info('MATKUL  = '.\json_encode($matkul));
+    
 
         return view('layoutAdmin.matkul.index',[
             'matkuls' => $matkul,
@@ -85,11 +87,14 @@ class MatkulController extends Controller
      */
     public function edit($kode_mk)
     {
-        $matkul = Matkul::find($kode_mk);
+        $matkul = Matkul::where('kode_mk','=',$kode_mk)->first();
 
-        return view('',[
+        $jurusan = Jurusan::all();
+
+        return view('layoutAdmin.matkul.edit',[
             'title' => 'Edit' . $kode_mk,
-            'matkul' => $matkul
+            'matkul' => $matkul,
+            'jurusans'=>$jurusan
         ]);
     }
 
@@ -106,16 +111,22 @@ class MatkulController extends Controller
 
         ]);
 
+        // $matkul = Matkul::where('kode_mk','=', $kode_mk)->first();
         $matkul = Matkul::find($kode_mk);
+        
+        
         $matkul->kode_mk = $request->kode_mk;
         $matkul->id_jurusan = $request->id_jurusan;
         $matkul->nama_mk = $request->nama_mk;
         $matkul->sks = $request->sks;
         $matkul->semester = $request->semester;
-
+        // dd($matkul);
+        // Log::info('MATKUL  = '.\json_encode($matkul));
         $matkul->save();
+        // $matkul = Matkul::update('update matkuls set '.$matkul.'where kode_mk = '.$kode_mk.'');
         
-        return redirect('')->route()->with();
+        return redirect()->route('matkul.index')->with('success','Data Terupdate');
+        // return response()->json($matkul->kode_mk);
     }
 
     /**
@@ -130,6 +141,7 @@ class MatkulController extends Controller
 
         $matkul->delete();
 
-        return redirect('')->route()->with();
+        return redirect()->back()->with('warning','Data Terhapus');
+        // return response()->json($matkul);
     }
 }

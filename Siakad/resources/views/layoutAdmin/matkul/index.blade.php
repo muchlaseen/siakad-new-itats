@@ -40,8 +40,8 @@
                                 <form action="{{route('matkul.store')}}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                    <label for="inputKode">Kode Mata Kuliah</label>
-                                    <input name="kode_mk" type="number" class="form-control" id="inputKode" aria-describedby="emailHelp">
+                                        <label for="inputKode">Kode Mata Kuliah</label>
+                                        <input name="kode_mk" type="number" class="form-control" id="inputKode" aria-describedby="emailHelp">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect1">Nama Jurusan</label>
@@ -111,8 +111,8 @@
                         <td>{{$matkul->nama_mk}} </td>
                         <td>{{$matkul->sks}} </td>
                         <td>{{$matkul->semester}} </td>
-                        <td><a href="" class="btn-warning btn-sm">Edit</td>
-                        <td><a href="" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
+                        <td><a href="{{route('matkul.edit',$matkul->kode_mk)}} " class="btn-warning btn-sm">Edit</td>
+                        <td><a href="{{route('matkul.delete',$matkul->kode_mk)}} " class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
                     </tr>
                         
                     @endforeach
