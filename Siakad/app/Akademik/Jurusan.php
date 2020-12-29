@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jurusan extends Model
 {
-    protected $primaryKey = 'id_jurusan';
-    protected $fillabel = ['id_jurusan','id_fakultas','kode_jurusan','nama_jurusan'];
+    protected $primarykey = 'id_jurusan';
+    protected $fillable = ['id_jurusan','id_fakultas','kode_jurusan','nama_jurusan'];
     protected $guard = [];
     protected $table = 'jurusans';
 
@@ -27,8 +27,9 @@ class Jurusan extends Model
     //     //                          model           foreignkey      pemilik key
     // }
 
-    public function comments()
+    public function matkul()
     {
-        return $this->hasMany('App\Akademik\Matkul', 'id_jurusan', 'id_jurusan');
+        // return $this->belongsToMany('App\Akademik\Matkul', 'id_jurusan', 'id_jurusan');
+        return $this->belongsToMany('App\Akademik\Matkul');
     }
 }

@@ -1,72 +1,47 @@
 <x-admin-master>
     @section('content')
         <h1> Edit Dosen</h1>
-        <form action="{{route('dosen.update', $dosen)}} " enctype="multipart/form-data"  method="post">
-            @csrf
-            @method('PUT')
-            <div class="form-group">
-                <label for="title">NIM</label>
-                <input type="text"
-                       name="nim"
-                       class="form-control"
-                       id="nim"
-                       aria-describedby=""
-                       placeholder="Masukan NIM"
-                       value="{{old('nim') ?? $dosen->nim}} ">
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{session('success')}}
             </div>
-            <div class="form-group">
-                <label for="title">Nama Lengkap</label>
-                <input type="text"
-                       name="nama"
-                       class="form-control"
-                       id="nama"
-                       aria-describedby=""
-                       placeholder="Masukan Nama Lengkap"
-                       value="{{$dosen->nama}} ">
+        @endif
+        <div class="row">
+            <div class="col-lg-12">
+            <form action="{{route('dosen.update', $dosen)}}" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group">
+                  <label for="inputNPM">NIM</label>
+                  <input name="nim" type="text" class="form-control" id="inputNIM" aria-describedby="emailHelp" value="{{old('nim') ?? $dosen->nim}}">
+                </div>
+                <div class="form-group">
+                    <label for="inputNama">Nama Lengkap</label>
+                    <input name="nama" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp" value="{{old('nama') ?? $dosen->nama}}">
+                </div>
+                <div class="form-group">
+                    <label for="inputAlamat">Alamat</label>
+                    <input name="alamat" type="text" class="form-control" id="inputAlamat" aria-describedby="emailHelp" value="{{old('alamat') ?? $dosen->alamat}}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Jenis Kelamin</label>
+                    <select name="kelamin" class="form-control" id="exampleFormControlSelect1">
+                      <option value="L" @if($dosen->jenis_kelamin == 'L') selected @endif>Laki-laki</option>
+                      <option value="P" @if($dosen->jenis_kelamin == 'P') selected @endif>Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input name="email" type="email" class="form-control" id="inputNama" aria-describedby="emailHelp" value="{{$dosen->email}}">
+                </div>
+                <div class="form-group">
+                    <label for="inputTelp">No Telfon</label>
+                    <input name="no_telp" type="text" class="form-control" id="inputNama" aria-describedby="emailHelp" value="{{$dosen->no_telp}}">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="title">Alamat</label>
-                <input type="text"
-                       name="alamat"
-                       class="form-control"
-                       id="alamat"
-                       aria-describedby=""
-                       placeholder="Masukan Alamat"
-                       value="{{$dosen->alamat}} ">
-            </div>
-            <div class="form-group">
-                <label for="title">Jenis Kelamin</label>
-                <input type="text"
-                       name="kelamin"
-                       class="form-control"
-                       id="kelamin"
-                       aria-describedby=""
-                       placeholder="Masukkan Kelaminmu"
-                       value="{{$dosen->jenis_kelamin}} ">
-            </div>
-            <div class="form-group">
-                <label for="title">Email</label>
-                <input type="text"
-                       name="email"
-                       class="form-control"
-                       id="email"
-                       aria-describedby=""
-                       placeholder="Masukan Email"
-                       value="{{$dosen->email}} ">
-            </div>
-            <div class="form-group">
-                <label for="title">Nomor Telepon</label>
-                <input type="text"
-                       name="no_telp"
-                       class="form-control"
-                       id="no_telp"
-                       aria-describedby=""
-                       placeholder="Masukan nomor telpon"
-                       value="{{$dosen->no_telp}} ">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning">Update</button>
+            </form>
+        </div>
+        </div>
     @endsection
 </x-admin-master>
