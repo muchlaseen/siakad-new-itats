@@ -31,6 +31,8 @@
     <x-admin-sidebar-dosens-links></x-admin-sidebar-dosens-links>
     {{--mahasiswa        --}}
     <x-admin-sidebar-mahasiswas-links></x-admin-sidebar-mahasiswas-links>
+    {{--akun--}}
+    <x-admin-sidebar-akuns-links></x-admin-sidebar-akuns-links>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

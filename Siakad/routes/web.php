@@ -37,6 +37,12 @@ Route::middleware('auth')->group(function(){
     Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update')->name('mahasiswa.update');
     Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy')->name('mahasiswa.delete');
 
+    Route::get('/admin/akun','User\AkunController@index')->name('akun.index');
+    Route::get('/admin/akun/create','User\AkunController@create')->name('akun.create');
+    Route::get('/admin/akun/{id_akun}/edit','User\AkunController@edit')->name('akun.edit');
+    Route::put('/admin/akun/{id_akun}/update','User\AkunController@update')->name('akun.update');
+    Route::get('/admin/akun/{id_akun}/delete','User\AkunController@destroy')->name('akun.delete');
+
     Route::get('/admin/fakultas','Akademik\FakultasController@index')->name('fakultas.index');
     Route::get('/admin/fakultas/create','Akademik\FakultasController@create')->name('fakultas.create');
     Route::post('/admin/fakultas/create','Akademik\FakultasController@store')->name('fakultas.store');
