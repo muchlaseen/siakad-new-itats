@@ -26,7 +26,7 @@ class AkunController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,7 +37,21 @@ class AkunController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                'id_akun' => 'required|min:1',
+                'identitas' => 'required|min:5',
+                'password' => 'required',
+                'categori' => 'required'
+            ]);
+    
+            $akun =  new Akun();
+            $akun->id_akun = $request->input('id_akun');
+            $akun->identitas = $request->input('identitas');
+            $akun->password = $request->input('password');
+            $akun->categori = $request->input('categori');
+            $akun->save();
+    
+            return redirect()->route('akun.index');
     }
 
     /**
@@ -57,9 +71,14 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_akun)
     {
-        //
+        $akun = Akun::find($id_akun);
+        return view('layoutAdmin.akun.edit',
+        [
+            'title' => 'Edit ' . $id_akun,
+            'akun' => $akun,
+        ]);
     }
 
     /**
@@ -69,9 +88,23 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_akun)
     {
-        //
+        $this->validate($request, [
+            'id_akun' => 'required|min:1',
+            'identitas' => 'required|min:5',
+            'password' => 'required',
+            'categori' => 'required'
+        ]);
+
+        $akun =  Akun::find($id_akun);
+        $akun->id_akun = $request->id_akun;
+        $akun->identitas = $request->identitas;
+        $akun->password = $request->password;
+        $akun->categori = $request->categori;
+        $akun->save();
+
+        return redirect()->route('akun.index');
     }
 
     /**
@@ -80,8 +113,12 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_akun)
     {
-        //
+        $akun = Akun::find($id_akun);
+
+        $akun->delete();
+
+        return redirect()->back()->with('warning','Data Terhapus');
     }
 }

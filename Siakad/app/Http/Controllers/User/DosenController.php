@@ -25,7 +25,6 @@ class DosenController extends Controller
 //        ]);
         #ilham
             return view('layoutAdmin.dosen.index',
-            #irul
             [
                 'title' => 'List Dosen',
                 'dosens' => $dosen,
