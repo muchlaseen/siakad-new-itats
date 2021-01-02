@@ -15,7 +15,7 @@ class CreateAkunsTable extends Migration
     {
         Schema::create('akuns', function (Blueprint $table) {
             $table->integer('id_akun')->primary();
-            $table->integer('identitas');
+            $table->string('identitas');
             $table->string('password');
             $table->string('categori');
             $table->timestamps();

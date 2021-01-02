@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/masuk', 'HomeController@masuk')->name('masuk');
+Route::post('/login_user','User\AkunController@login')->name('akun.login');
+Route::get('/logout_user','User\AkunController@logout')->name('akun.logout');
 
 Auth::routes();
 Route::middleware('auth')->group(function(){
@@ -57,7 +59,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin/jurusan/{id_jurusan}/delete','Akademik\JurusanController@destroy')->name('jurusan.delete');
     Route::get('/admin/jurusan/{id_jurusan}/edit','Akademik\JurusanController@edit')->name('jurusan.edit');
     Route::put('/admin/jurusan/{id_jurusan}/update','Akademik\JurusanController@update')->name('jurusan.update');
-    
+
 
     Route::get('/admin/matkul','Akademik\MatkulController@index')->name('matkul.index');
     Route::post('/admin/matkul/create','Akademik\MatkulController@store')->name('matkul.store');
@@ -70,12 +72,10 @@ Route::middleware('auth')->group(function(){
 
 Route::get('/mahasiswa', function () {
     return view('Frontend/Mahasiswa/home');
-});
+})->name('mahasiswa.index');
 
 Route::get('/mahasiswa/krs', function () {
     return view ('Frontend/Mahasiswa/KRS');
 });
 
-Route::get('/coba', function () {
-    return view ('Frontend/Mahasiswa/coba');
-});
+

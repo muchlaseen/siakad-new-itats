@@ -18,21 +18,23 @@
         <img src="../storage/itats-logo-lama.png" alt="">
         <h1>SIAKAD ITATS</h1>
         <h4>Izinkan sistem mengidentifikasi anda</h4>
-        <form action="">
+        <form action="{{route("akun.login")}}" enctype="multipart/form-data" method="POST">
+            @csrf
+            @method('post')
             <div class="input-field">
-                <input type="text" required>
+                <input type="text" name="identitas" required>
                 <label>NPM/NIP, contoh: 06.2018.1.06941</label>
             </div>
             <div class="input-field">
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <span class="show-pass">SHOW</span>
                 <label>Password</label>
             </div>
             <div class="button">
                 <div class="inner"></div>
-                <button>Login</button>
+                <button type="submit">Login</button>
             </div>
-            
+
         </form>
         <div class="footer">
             <p>INSTITUT TEKNOLOGI ADHI TAMA SURABAYA</p>

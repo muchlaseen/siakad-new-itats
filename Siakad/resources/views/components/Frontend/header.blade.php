@@ -5,7 +5,7 @@
       <i class="fas fa-arrow-right right"></i>
       <i class="fas fa-times cancel"></i>
     </div>
-    
+
     {{-- <i class="fas fa-bars side menu-toggle"></i>
     <i class="fas fa-times cancel menu-toggle"></i> --}}
 
@@ -30,7 +30,7 @@
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="{{route('akun.logout')}}">Logout</a>
           </div>
         </li>
       </ul>
