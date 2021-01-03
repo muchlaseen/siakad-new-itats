@@ -70,12 +70,14 @@ Route::middleware('auth')->group(function(){
 
 // Route::get('/jurusan', 'Akademik\JurusanController@create');
 
-Route::get('/mahasiswa', function () {
-    return view('Frontend/Mahasiswa/home');
-})->name('mahasiswa.index');
+Route::middleware('akun')->group(function(){
 
-Route::get('/mahasiswa/krs', function () {
-    return view ('Frontend/Mahasiswa/KRS');
+    Route::get('/mahasiswa', function () {
+        return view('Frontend/Mahasiswa/home');
+    })->name('mahasiswa.index');
+
+    Route::get('/mahasiswa/krs', function () {
+        return view ('Frontend/Mahasiswa/KRS');
+    });
 });
-
 

@@ -30,6 +30,11 @@
                 <span class="show-pass">SHOW</span>
                 <label>Password</label>
             </div>
+            @if (!session('login_berhasil'))
+                <div class="alert alert-danger" role="alert">
+                    NIM/NPM atau Password salah!!
+                </div>
+            @endif
             <div class="button">
                 <div class="inner"></div>
                 <button type="submit">Login</button>
