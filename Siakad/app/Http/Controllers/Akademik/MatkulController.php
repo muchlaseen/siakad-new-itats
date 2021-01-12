@@ -19,7 +19,8 @@ class MatkulController extends Controller
     public function index()
     {
         $jurusan = Jurusan::all();
-        $matkul = Matkul::join('jurusans as js','js.id_jurusan','=','matkuls.id_jurusan')->selectRaw('matkuls.*,js.nama_jurusan')->get();
+        // $matkul = Matkul::join('jurusans as js','js.id_jurusan','=','matkuls.id_jurusan')->selectRaw('matkuls.*,js.nama_jurusan')->get();
+        $matkul = Matkul::paginate(5);
 
         // $matkul = DB::table('matkuls')
         // ->select('*','jurusans.nama_jurusan')
@@ -27,7 +28,7 @@ class MatkulController extends Controller
         // ->get();
 
         // Log::info('MATKUL  = '.\json_encode($matkul));
-    
+
 
         return view('layoutAdmin.matkul.index',[
             'matkuls' => $matkul,
@@ -62,8 +63,9 @@ class MatkulController extends Controller
         $matkul->nama_mk = $request->nama_mk;
         $matkul->sks = $request->sks;
         $matkul->semester = $request->semester;
-
+        $matkul->jurusan()->attach($request->id_jurusan);
         $matkul->save();
+
 
         return redirect()->back()->with('success','Data Tersimpan');
     }
@@ -113,8 +115,8 @@ class MatkulController extends Controller
 
         // $matkul = Matkul::where('kode_mk','=', $kode_mk)->first();
         $matkul = Matkul::find($kode_mk);
-        
-        
+
+
         $matkul->kode_mk = $request->kode_mk;
         $matkul->id_jurusan = $request->id_jurusan;
         $matkul->nama_mk = $request->nama_mk;
@@ -124,7 +126,7 @@ class MatkulController extends Controller
         // Log::info('MATKUL  = '.\json_encode($matkul));
         $matkul->save();
         // $matkul = Matkul::update('update matkuls set '.$matkul.'where kode_mk = '.$kode_mk.'');
-        
+
         return redirect()->route('matkul.index')->with('success','Data Terupdate');
         // return response()->json($matkul->kode_mk);
     }

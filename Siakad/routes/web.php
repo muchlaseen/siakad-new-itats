@@ -76,8 +76,5 @@ Route::middleware('akun')->group(function(){
         return view('Frontend/Mahasiswa/home');
     })->name('mahasiswa.index');
 
-    Route::get('/mahasiswa/krs', function () {
-        return view ('Frontend/Mahasiswa/KRS');
-    });
+    Route::get('/mahasiswa/krs', 'Frontend\KRSController@index')->name('krs.index');
 });
-

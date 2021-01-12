@@ -43,7 +43,7 @@
                                     <td>{{$jurusan->nama_jurusan}} </a></td>
                                     <td>
                                         <a href="{{route('jurusan.edit',$jurusan->id_jurusan)}} " class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                        <a href="{{route('jurusan.delete', $jurusan)}}" class="btn btn-danger" onclick="return confirm('Data akan dihapus, lanjutkan?')"><i class="far fa-trash-alt"></i></a>
+                                        <a href="{{route('jurusan.delete', $jurusan->id_jurusan)}}" class="btn btn-danger" onclick="return confirm('Data akan dihapus, lanjutkan?')"><i class="far fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

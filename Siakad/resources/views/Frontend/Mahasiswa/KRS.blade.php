@@ -1,6 +1,6 @@
 @extends('components.Frontend.master')
     @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid p-2">
         <div class="row">
             <!-- column -->
             <div class="col-12">
@@ -15,10 +15,8 @@
                             <div class="ml-auto">
                                 <div class="dl">
                                     <select class="custom-select">
-                                        <option value="0" selected>Monthly</option>
-                                        <option value="1">Daily</option>
-                                        <option value="2">Weekly</option>
-                                        <option value="3">Yearly</option>
+                                        <option value="ganjil" selected>Ganjil</option>
+                                        <option value="genap">Genap</option>
                                     </select>
                                 </div>
                             </div>

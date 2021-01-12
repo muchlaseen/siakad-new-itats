@@ -2,6 +2,7 @@
 
 namespace App\Akademik;
 
+use App\Jurusan_Matkul;
 use Illuminate\Database\Eloquent\Model;
 
 class Matkul extends Model
@@ -12,7 +13,6 @@ class Matkul extends Model
     protected $fillable = ['kode_mk','id_jurusan','nama_mk','sks','semester'];
     public function jurusan()
     {
-        // return $this->belongsToMany('App\Akademik\Jurusan',  'id_jurusan', 'id_jurusan');
-        return $this->belogsToMany('App\Akademik\Jurusan');
+        return $this->belongsToMany('App\Akademik\Jurusan');
     }
 }

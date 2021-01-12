@@ -12,20 +12,20 @@
                 <br>
             </div>
                 <div class="col-6">
-                    
+
                 <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#exampleModal">
                         Tambah Data
                     </button>
-                    
+
                 </div>
                 <div class="col-6">
                     <div class="form-group pull-left">
                         <input id="searchInput" type="text" class="search form-control" placeholder="Cari mata kuliah">
                     </div>
                 </div>
-            
-                  
+
+
             <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -61,6 +61,7 @@
                                         <option value=1>1</option>
                                         <option value=2>2</option>
                                         <option value=3>3</option>
+                                        <option value=4>4</option>
                                         <option value=5>5</option>
                                         </select>
                                     </div>
@@ -84,14 +85,14 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                             </div>
-                        
+
                             </div>
                         </div>
                     </div>
         </div>
-            
 
-            
+
+
             <table class="table table-striped">
                 <thead class="thead-light">
                     <tr>
@@ -107,19 +108,29 @@
                     @foreach ($matkuls as $matkul)
                     <tr>
                         <td>{{$matkul->kode_mk}} </td>
-                        <td>{{$matkul->nama_jurusan}} </td>
+                        <td>
+                        @foreach ($matkul->jurusan as $item)
+                            {{$item->nama_jurusan}}
+                            {{-- <ul>
+                                <li>
+                                {{$item->nama_jurusan}}
+                                </li>
+                            </ul> --}}
+                        @endforeach
+                        </td>
                         <td>{{$matkul->nama_mk}} </td>
                         <td>{{$matkul->sks}} </td>
                         <td>{{$matkul->semester}} </td>
                         <td><a href="{{route('matkul.edit',$matkul->kode_mk)}} " class="btn-warning btn-sm">Edit</td>
                         <td><a href="{{route('matkul.delete',$matkul->kode_mk)}} " class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
                     </tr>
-                        
+
                     @endforeach
 
                 </tbody>
-               
+
             </table>
+            {{$matkuls->links()}}
         </div>
     </div>
 @endsection
