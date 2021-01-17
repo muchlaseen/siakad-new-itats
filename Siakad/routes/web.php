@@ -33,11 +33,12 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/admin/mahasiswa','User\MahasiswaController@index')->name('mahasiswa.index');
 
-    Route::get('/mahasiswa', 'User\MahasiswaController@index');
-    Route::post('/mahasiswa/create', 'User\MahasiswaController@create');
-    Route::get('/mahasiswa/{npm}/edit', 'User\MahasiswaController@edit');
-    Route::post('/mahasiswa/{npm}/update', 'User\MahasiswaController@update')->name('mahasiswa.update');
-    Route::get('/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy')->name('mahasiswa.delete');
+    Route::get('/admin/mahasiswa', 'User\MahasiswaController@index')->name('mahasiswa.index');
+    Route::get('/admin/mahasiswa/create', 'User\MahasiswaController@create')->name('mahasiswa.create');
+    Route::post('/admin/mahasiswa/store', 'User\MahasiswaController@store')->name('mahasiswa.store');
+    Route::get('/admin/mahasiswa/{npm}/edit', 'User\MahasiswaController@edit')->name('mahasiswa.edit');
+    Route::post('/admin/mahasiswa/{npm}/update', 'User\MahasiswaController@update')->name('mahasiswa.update');
+    Route::get('/admin/mahasiswa/{npm}/delete', 'User\MahasiswaController@destroy')->name('mahasiswa.delete');
 
     Route::get('/admin/akun','User\AkunController@index')->name('akun.index');
     Route::post('/admin/akun/create','User\AkunController@create')->name('akun.create');

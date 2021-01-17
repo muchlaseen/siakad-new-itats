@@ -16,7 +16,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
+        $mahasiswa = Mahasiswa::paginate(5);
         $jurusans = Jurusan::all();
         return view('layoutAdmin.mahasiswa.index',compact('jurusans'), ['mahasiswas' => $mahasiswa]);
     }
@@ -26,10 +26,11 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        \App\User\Mahasiswa::create($request->all());
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil ditambahkan');
+        return view('');
+        // \App\User\Mahasiswa::create($request->all());
+        // return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -40,7 +41,20 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'npm' => 'required|min:12',
+            'id_jurusan' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_telp' => 'required',
+            'tempat_lahir' => 'required',
+            'tgl_lahir' => 'required',
+        ]);
+
+        $mahasiswa = new Mahasiswa();
+
+
     }
 
     /**
