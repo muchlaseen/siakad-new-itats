@@ -41,7 +41,7 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'npm' => 'required|min:12',
             'id_jurusan' => 'required|min:1',
             'nama' => 'required',
@@ -63,6 +63,7 @@ class MahasiswaController extends Controller
         $mahasiswa->tempat_lahir = $request->input('tempat_lahir');
         $mahasiswa->tgl_lahir = $request->input('tgl_lahir');
         $mahasiswa->agama = $request->input('agama');
+        
         $mahasiswa->jurusan()->attach($request->id_jurusan);
         $mahasiswa->save();
 
@@ -89,7 +90,7 @@ class MahasiswaController extends Controller
     public function edit($npm)
     {
         $jurusans = Jurusan::all();
-        $mahasiswa = Mahasiswa::find($npm);
+        $mahasiswa = Mahasiswa::with('jurusan')->find($npm);
         return view('layoutAdmin.mahasiswa.edit',compact('jurusans'), ['mahasiswas' => $mahasiswa]);
     }
 
@@ -102,8 +103,31 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $npm)
     {
+
+        $request->validate([
+            'npm' => 'required|min:12',
+            'id_jurusan' => 'required|min:1',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_telp' => 'required',
+            'tempat_lahir' => 'required',
+            'tgl_lahir' => 'required',
+        ]);
+
         $mahasiswa = Mahasiswa::find($npm);
-        $mahasiswa->update($request->all());
+        $mahasiswa->npm = $request->npm;
+        $mahasiswa->id_jurusan = $request->id_jurusan;
+        $mahasiswa->nama = $request->nama;
+        $mahasiswa->alamat = $request->alamat;
+        $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
+        $mahasiswa->email = $request->email;
+        $mahasiswa->no_telp = $request->no_telp;
+        $mahasiswa->tempat_lahir = $request->tempat_lahir;
+        $mahasiswa->tgl_lahir = $request->tgl_lahir;
+        $mahassiwa->agama = $request->agama;
+
+        $mahasiswa->save();
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diupdate');
     }
 
@@ -117,6 +141,6 @@ class MahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::find($npm);
         $mahasiswa->delete();
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil dihapus');
+        return redirect()->back()->with('mahasiswa.index')->with('success', 'Data berhasil dihapus');
     }
 }
