@@ -43,7 +43,7 @@ class MahasiswaController extends Controller
     {
         $this->validate($request, [
             'npm' => 'required|min:12',
-            'id_jurusan' => 'required',
+            'id_jurusan' => 'required|min:1',
             'nama' => 'required',
             'alamat' => 'required',
             'jenis_kelamin' => 'required',
@@ -53,8 +53,20 @@ class MahasiswaController extends Controller
         ]);
 
         $mahasiswa = new Mahasiswa();
+        $mahasiswa->npm = $request->input('npm');
+        $mahasiswa->id_jurusan = $request->input('id_jurusan');
+        $mahasiswa->nama = $request->input('nama');
+        $mahasiswa->alamat = $request->input('alamat');
+        $mahasiswa->jenis_kelamin = $request->input('jenis_kelamin');
+        $mahasiswa->email = $request->input('email');
+        $mahasiswa->no_telp = $request->input('no_telp');
+        $mahasiswa->tempat_lahir = $request->input('tempat_lahir');
+        $mahasiswa->tgl_lahir = $request->input('tgl_lahir');
+        $mahasiswa->agama = $request->input('agama');
+        $mahasiswa->jurusan()->attach($request->id_jurusan);
+        $mahasiswa->save();
 
-
+        return redirect()->back()->with('success', 'Data mahasiswa tersimpan');
     }
 
     /**
