@@ -6,8 +6,8 @@
         <div id="collapseDosen" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Dosen</h6>
-            <a class="collapse-item" href="{{route('dosen.create')}}">Tambahkan Dosen</a>
-            <a class="collapse-item" href="{{route('dosen.index')}}">Tampilkan Dosen</a>
+            {{-- <a class="collapse-item" href="{{route('dosen.create')}}">Tambahkan Dosen</a> --}}
+            <a class="collapse-item" href="{{route('dosen.index')}}">Manage Dosen</a>
           </div>
         </div>
  </li>

@@ -254,6 +254,16 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('js/sb-admin-2.js')}}"></script>
+  <script>
+    $(document).ready(function(){
+      $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#data-table tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+</script>
 
 
 </body>

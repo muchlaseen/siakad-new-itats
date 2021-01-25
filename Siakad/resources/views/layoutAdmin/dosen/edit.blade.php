@@ -10,6 +10,7 @@
             <div class="col-lg-12">
             <form action="{{route('dosen.update', $dosen)}}" method="POST">
                 {{ csrf_field() }}
+                @method('PUT')
                 <div class="form-group">
                   <label for="inputNPM">NIM</label>
                   <input name="nim" type="text" class="form-control" id="inputNIM" aria-describedby="emailHelp" value="{{old('nim') ?? $dosen->nim}}">

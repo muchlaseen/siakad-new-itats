@@ -6,8 +6,7 @@
     <div id="collapseMahasiswa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">MAHASISWA</h6>
-            <a class="collapse-item" href="#">Tambahkan Mahasiswa</a>
-            <a class="collapse-item" href="{{route('mahasiswa.index')}}">Tampilkan Mahasiswa</a>
+            <a class="collapse-item" href="{{route('mahasiswa.index')}}">Manage Mahasiswa</a>
         </div>
     </div>
 </li>

@@ -31,7 +31,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin/dosen/{nim}/edit','User\DosenController@edit')->name('dosen.edit');
     Route::put('/admin/dosen/{nim}/update','User\DosenController@update')->name('dosen.update');
 
-    Route::get('/admin/mahasiswa','User\MahasiswaController@index')->name('mahasiswa.index');
 
     Route::get('/admin/mahasiswa', 'User\MahasiswaController@index')->name('mahasiswa.index');
     Route::get('/admin/mahasiswa/create', 'User\MahasiswaController@create')->name('mahasiswa.create');
@@ -75,7 +74,7 @@ Route::middleware('akun')->group(function(){
 
     Route::get('/mahasiswa', function () {
         return view('Frontend/Mahasiswa/home');
-    })->name('mahasiswa.index');
+    })->name('user.mahasiswa.index');
 
     Route::get('/mahasiswa/krs', 'Frontend\KRSController@index')->name('krs.index');
 });

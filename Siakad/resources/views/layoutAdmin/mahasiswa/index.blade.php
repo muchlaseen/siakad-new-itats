@@ -36,11 +36,14 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/mahasiswa/create" method="POST">
+                                        <form action="{{route('mahasiswa.store')}}" method="POST">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                             <label for="inputNPM">NPM</label>
-                                            <input name="npm" type="number" class="form-control" id="inputNPM" aria-describedby="emailHelp">
+                                            <input name="npm" type="tel"
+                                            class="form-control" 
+                                            id="inputNPM" 
+                                            formnovalidate="formnovalidate">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputJurusan">ID Jurusan</label>
@@ -117,10 +120,10 @@
                         <th colspan="2" style="text-align: center">Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="tableMhs">
+                <tbody id="data-table">
                     @foreach ($mahasiswas as $mahasiswa)
                     <tr>
-                        <td>{{ sprintf("%06d", $mahasiswa->npm)}}</td>
+                        <td>{{($mahasiswa->npm)}}</td>
                         <td>{{$mahasiswa->id_jurusan}}</td>
                         <td>{{$mahasiswa->nama}}</td>
                         <td>{{$mahasiswa->alamat}}</td>

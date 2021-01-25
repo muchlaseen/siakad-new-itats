@@ -63,8 +63,6 @@ class MahasiswaController extends Controller
         $mahasiswa->tempat_lahir = $request->input('tempat_lahir');
         $mahasiswa->tgl_lahir = $request->input('tgl_lahir');
         $mahasiswa->agama = $request->input('agama');
-        
-        $mahasiswa->jurusan()->attach($request->id_jurusan);
         $mahasiswa->save();
 
         return redirect()->back()->with('success', 'Data mahasiswa tersimpan');

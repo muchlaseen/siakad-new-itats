@@ -91,7 +91,7 @@
                 <th colspan="2" style="text-align: center">Aksi</th>
             </tr>
         </thead>
-        <tbody id="tableDosen">
+        <tbody id="data-table">
             @foreach ($dosens as $dosen)
             <tr>
                 <td>{{(($dosen->nim))}} </td>
