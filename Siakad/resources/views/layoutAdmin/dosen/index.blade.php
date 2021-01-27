@@ -100,7 +100,7 @@
                 <td>{{$dosen->jenis_kelamin}} </td>
                 <td>{{$dosen->email}} </td>
                 <td>{{$dosen->no_telp}} </td>
-                <td><a href="{{route('dosen.edit', $dosen)}}" class="btn-warning btn-sm">Edit</td>
+                <td><a href="{{route('dosen.edit', $dosen->nim)}}" class="btn-warning btn-sm">Edit</td>
                 <td><a href="{{route('dosen.delete', $dosen)}}" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
 
             </tr>  

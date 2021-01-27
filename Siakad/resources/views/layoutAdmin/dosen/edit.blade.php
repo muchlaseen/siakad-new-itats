@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12">
             <form action="{{route('dosen.update', $dosen)}}" method="POST">
-                {{ csrf_field() }}
+                @csrf
                 @method('PUT')
                 <div class="form-group">
                   <label for="inputNPM">NIM</label>
