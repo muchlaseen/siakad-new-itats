@@ -133,7 +133,7 @@
                         <td>{{$mahasiswa->tempat_lahir}}</td>
                         <td>{{$mahasiswa->tgl_lahir}}</td>
                         <td>{{$mahasiswa->agama}}</td>
-                        <td><a href="/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
+                        <td><a href="/admin/mahasiswa/{{$mahasiswa->npm}}/edit" class="btn-warning btn-sm">Edit</td>
                         <td><a href="{{route('mahasiswa.delete', $mahasiswa)}}" class="btn-danger btn-sm" onclick="return confirm('Data akan dihapus, lanjutkan?')">Delete</a></td>
         
                     </tr>  

@@ -42,7 +42,7 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'npm' => 'required|min:12',
+            'npm' => 'required|min:5',
             'id_jurusan' => 'required|min:1',
             'nama' => 'required',
             'alamat' => 'required',
@@ -103,7 +103,7 @@ class MahasiswaController extends Controller
     {
 
         $request->validate([
-            'npm' => 'required|min:12',
+            'npm' => 'required|min:5',
             'id_jurusan' => 'required|min:1',
             'nama' => 'required',
             'alamat' => 'required',
@@ -123,10 +123,10 @@ class MahasiswaController extends Controller
         $mahasiswa->no_telp = $request->no_telp;
         $mahasiswa->tempat_lahir = $request->tempat_lahir;
         $mahasiswa->tgl_lahir = $request->tgl_lahir;
-        $mahassiwa->agama = $request->agama;
+        $mahasiswa->agama = $request->agama;
 
         $mahasiswa->save();
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('mahasiswa.index')->with('success', 'Data mahasiswa berhasil diupdate');
     }
 
     /**

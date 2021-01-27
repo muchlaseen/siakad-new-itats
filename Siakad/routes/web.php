@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/admin/matkul/{kode_mk}/edit','Akademik\MatkulController@edit')->name('matkul.edit');
     Route::put('/admin/matkul/{kode_mk}/update','Akademik\MatkulController@update')->name('matkul.update');
     Route::get('/admin/matkul/{kode_mk}/delete','Akademik\MatkulController@destroy')->name('matkul.delete');
+
 });
 
 // Route::get('/jurusan', 'Akademik\JurusanController@create');
